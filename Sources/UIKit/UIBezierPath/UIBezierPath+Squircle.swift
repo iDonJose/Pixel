@@ -5,219 +5,192 @@
 //  Created by José Donor on 26/11/2018.
 //
 
-// Sources :
-// - https://github.com/interfacemarket/Egmont-plugin/blob/master/Egmont-plugin.sketchplugin/Contents/Sketch/EgmontPlugin.js
-// - https://www.paintcodeapp.com/news/code-for-ios-7-rounded-rectangles
+// Source : https://github.com/everdrone/react-native-squircle-view/blob/master/ios/RNSquircleView.swift
 
 
 extension UIBezierPath {
 
-	/// Creates a squircle path
-	public convenience init(squircleIn bounds: CGRect,
-							cornerRadius: CGFloat) {
+    public convenience init(squircleIn bounds: CGRect,
+                            cornerRadii: [UIRectCorner: CGFloat],
+                            morphsIntoCircle: Bool) {
+
+		let length = Swift.min(bounds.width, bounds.height)
+
+		guard !(morphsIntoCircle && cornerRadii[.allCorners] == length / 2) else {
+			self.init(ovalIn: .init(origin: bounds.origin,
+									size: .one * length))
+			return
+		}
+
 		self.init()
 
-		let radiusLimit = min(bounds.width, bounds.height) / 2 / 1.52866483
-		let radiusMax = min(cornerRadius, radiusLimit)
+
+        let coeffs: [CGFloat] = [
+            0.046412805499999994,
+            0.133566352,
+            0.22071989825,
+            0.348614185,
+            0.5115771475,
+            0.67454011,
+            0.8609766075,
+            1.1579757175
+        ]
+
+        let normals: [CGFloat] = [
+            0.049745972799999996,
+            0.1365289826,
+            0.22331199200000001,
+            0.34713204000000003,
+            0.495280188,
+            0.643428336,
+            0.815904584,
+            1.0
+        ]
+
+        let count = 8
+
+        var c = [CGFloat](repeating: 0, count: count)
+
+        let max = length / 2
+        let min = max / coeffs[7]
 
 
-		// Rectangle corners
-		let A: (CGFloat, CGFloat) -> CGPoint = { x, y in
-			return CGPoint(x: bounds.origin.x + x * radiusMax,
-						   y: bounds.origin.y + y * radiusMax)
-		}
-		let B: (CGFloat, CGFloat) -> CGPoint = { x, y in
-			return CGPoint(x: bounds.origin.x + bounds.width - x * radiusMax,
-						   y: bounds.origin.y + y * radiusMax)
-		}
-		let C: (CGFloat, CGFloat) -> CGPoint = { x, y in
-			return CGPoint(x: bounds.origin.x + bounds.width - x * radiusMax,
-						   y: bounds.origin.y + bounds.height - y * radiusMax)
-		}
-		let D: (CGFloat, CGFloat) -> CGPoint = { x, y in
-			return CGPoint(x: bounds.origin.x + x * radiusMax,
-						   y: bounds.origin.y + bounds.height - y * radiusMax)
-		}
+        let corners: [UIRectCorner] = [
+            .topLeft,
+            .topRight,
+            .bottomRight,
+            .bottomLeft
+        ]
 
-		// Side middles
-		let E: (CGFloat) -> CGPoint = { y in
-			return CGPoint(x: bounds.midX,
-						   y: bounds.origin.y + y * bounds.width)
-		}
-		let F: (CGFloat) -> CGPoint = { x in
-			return CGPoint(x: bounds.x + bounds.width - x * radiusMax,
-						   y: bounds.midY)
-		}
-		let G: (CGFloat) -> CGPoint = { y in
-			return CGPoint(x: bounds.midX,
-						   y: bounds.y + bounds.height - y * radiusMax)
-		}
-		let H: (CGFloat) -> CGPoint = { x in
-			return CGPoint(x: bounds.x + x * bounds.height,
-						   y: bounds.midY)
-		}
+		var cornerRadii = cornerRadii.mapValues { $0.abs }
 
-		let threshold = 1.52866495 * 2 * cornerRadius
+        if let radius = cornerRadii[.allCorners] {
+            cornerRadii = [UIRectCorner: CGFloat](uniqueKeysWithValues: corners.map { ($0, radius) })
+        }
 
 
-		if bounds.width > threshold && bounds.height > threshold {
-
-			move(to: A(1.52866483, 0))
-			addLine(to: B(1.52866471, 0))
-			addCurve(to: B(0.66993427, 0.06549600), controlPoint1: B(1.08849323, 0), controlPoint2: B(0.86840689, 0))
-			addLine(to: B(0.63149399, 0.07491100))
-			addCurve(to: B(0.07491176, 0.63149399), controlPoint1: B(0.37282392, 0.16905899), controlPoint2: B(0.16906013, 0.37282401))
-			addCurve(to: B(0, 1.52866483), controlPoint1: B(0, 0.86840701), controlPoint2: B(0, 1.08849299))
-			addLine(to: C(0, 1.52866471))
-			addCurve(to: C(0.06549569, 0.66993493), controlPoint1: C(0, 1.08849323), controlPoint2: C(0, 0.86840689))
-			addLine(to: C(0.07491111, 0.63149399))
-			addCurve(to: C(0.63149399, 0.07491111), controlPoint1: C(0.16905883, 0.37282392), controlPoint2: C(0.37282392, 0.16905883))
-			addCurve(to: C(1.52866471, 0), controlPoint1: C(0.86840689, 0), controlPoint2: C(1.08849323, 0))
-			addLine(to: D(1.52866483, 0))
-			addCurve(to: D(0.66993397, 0.06549569), controlPoint1: D(1.08849299, 0), controlPoint2: D(0.86840701, 0))
-			addLine(to: D(0.63149399, 0.07491111))
-			addCurve(to: D(0.07491100, 0.63149399), controlPoint1: D(0.37282401, 0.16905883), controlPoint2: D(0.16906001, 0.37282392))
-			addCurve(to: D(0, 1.52866471), controlPoint1: D(0, 0.86840689), controlPoint2: D(0, 1.08849323))
-			addLine(to: A(0, 1.52866483))
-			addCurve(to: A(0.06549600, 0.66993397), controlPoint1: A(0, 1.08849299), controlPoint2: A(0, 0.86840701))
-			addLine(to: A(0.07491100, 0.63149399))
-			addCurve(to: A(0.63149399, 0.07491100), controlPoint1: A(0.16906001, 0.37282401), controlPoint2: A(0.37282401, 0.16906001))
-			addCurve(to: A(1.52866483, 0), controlPoint1: A(0.86840701, 0), controlPoint2: A(1.08849299, 0))
-			close()
-
-		}
-		else if bounds.width > threshold {
-
-			let F0 = F(0)
-			let H0 = H(0)
-
-			move(to: A(2.00593972, 0))
-			addLine(to: CGPoint(x: bounds.x + bounds.width - 1.52866483 * cornerRadius, y: bounds.y))
-			addCurve(to: B(0.99544263, 0.10012127), controlPoint1: B(1.63527834, 0), controlPoint2: B(1.29884040, 0))
-			addLine(to: B(0.93667978, 0.11451437))
-			addCurve(to: B(0.00000051, 1.45223188), controlPoint1: B(0.37430558, 0.31920183), controlPoint2: B(0.00000051, 0.85376567))
-			addCurve(to: F0, controlPoint1: F0, controlPoint2: F0)
-			addLine(to: F0)
-			addCurve(to: F0, controlPoint1: F0, controlPoint2: F0)
-			addLine(to: C(0, 1.45223165))
-			addCurve(to: C(0.93667978, 0.11451438), controlPoint1: C(0, 0.85376561), controlPoint2: C(0.37430558, 0.31920174))
-			addCurve(to: C(2.30815363, 0), controlPoint1: C(1.29884040, 0), controlPoint2: C(1.63527834, 0))
-			addLine(to: CGPoint(x: bounds.x + 1.52866483 * cornerRadius, y: bounds.y + bounds.height))
-			addCurve(to: D(0.99544257, 0.10012124), controlPoint1: D(1.63527822, 0), controlPoint2: D(1.29884040, 0))
-			addLine(to: D(0.93667972, 0.11451438))
-			addCurve(to: D(-0.00000001, 1.45223176), controlPoint1: D(0.37430549, 0.31920174), controlPoint2: D(-0.00000007, 0.85376561))
-			addCurve(to: H0, controlPoint1: H0, controlPoint2: H0)
-			addLine(to: H0)
-			addCurve(to: H0, controlPoint1: H0, controlPoint2: H0)
-			addLine(to: A(-0.00000001, 1.45223153))
-			addCurve(to: A(0.93667978, 0.11451436), controlPoint1: A(0.00000004, 0.85376537), controlPoint2: A(0.37430561, 0.31920177))
-			addCurve(to: A(2.30815363, 0), controlPoint1: A(1.29884040, 0), controlPoint2: A(1.63527822, 0))
-			addLine(to: CGPoint(x: bounds.x + 1.52866483 * cornerRadius, y: bounds.y))
-			addLine(to: A(2.00593972, 0))
-			close()
-
-		}
-		else if bounds.height > threshold {
-
-			let E0 = E(0)
-			let G0 = G(0)
-
-			move(to: E0)
-			addLine(to: E0)
-			addCurve(to: E0, controlPoint1: E0, controlPoint2: E0)
-			addLine(to: B(1.45223153, 0))
-			addCurve(to: B(0.11451442, 0.93667936), controlPoint1: B(0.85376573, 0.00000001), controlPoint2: B(0.31920189, 0.37430537))
-			addCurve(to: B(0, 2.30815387), controlPoint1: B(0, 1.29884040), controlPoint2: B(0, 1.63527822))
-			addLine(to: CGPoint(x: bounds.x + bounds.width, y: bounds.y + bounds.height - 1.52866483 * cornerRadius))
-			addCurve(to: C(0.10012137, 0.99544269), controlPoint1: C(0, 1.63527822), controlPoint2: C(0, 1.29884028))
-			addLine(to: C(0.11451442, 0.93667972))
-			addCurve(to: C(1.45223165, 0), controlPoint1: C(0.31920189, 0.37430552), controlPoint2: C(0.85376549, 0))
-			addCurve(to: G0, controlPoint1: G0, controlPoint2: G0)
-			addLine(to: G0)
-			addCurve(to: G0, controlPoint1: G0, controlPoint2: G0)
-			addLine(to: D(1.45223141, 0))
-			addCurve(to: D(0.11451446, 0.93667972), controlPoint1: D(0.85376543, 0), controlPoint2: D(0.31920192, 0.37430552))
-			addCurve(to: D(0, 2.30815387), controlPoint1: D(0, 1.29884028), controlPoint2: D(0, 1.63527822))
-			addLine(to: CGPoint(x: bounds.x, y: bounds.y + 1.52866483 * cornerRadius))
-			addCurve(to: A(0.10012126, 0.99544257), controlPoint1: A(0, 1.63527822), controlPoint2: A(0, 1.29884040))
-			addLine(to: A(0.11451443, 0.93667966))
-			addCurve(to: A(1.45223153, 0), controlPoint1: A(0.31920189, 0.37430552), controlPoint2: A(0.85376549, 0))
-			addCurve(to: E0, controlPoint1: E0, controlPoint2: E0)
-			addLine(to: E0)
-			close()
-
-		}
-		else if bounds.height > 1.52866495 * 2 * bounds.width {
-
-			let E0 = E(0)
-			let F0 = F(0)
-			let G0 = G(0)
-			let H0 = H(0)
-
-			move(to: E0)
-			addLine(to: E0)
-			addCurve(to: E0, controlPoint1: E0, controlPoint2: E0)
-			addLine(to: E0)
-			addCurve(to: B(0, 1.52866483), controlPoint1: B(0.68440646, 0.00000001), controlPoint2: B(0, 0.68440658))
-			addCurve(to: B(0, 1.52866507), controlPoint1: B(0, 1.52866495), controlPoint2: B(0, 1.52866495))
-			addCurve(to: B(0, 1.52866483), controlPoint1: B(0, 1.52866483), controlPoint2: B(0, 1.52866483))
-			addLine(to: F0)
-			addCurve(to: C(0, 1.52866471), controlPoint1: C(0, 1.52866471), controlPoint2: C(0, 1.52866471))
-			addLine(to: C(0, 1.52866471))
-			addCurve(to: G0, controlPoint1: C(0, 0.68440646), controlPoint2: C(0.68440646, 0))
-			addCurve(to: G0, controlPoint1: G0, controlPoint2: G0)
-			addCurve(to: G0, controlPoint1: G0, controlPoint2: G0)
-			addLine(to: G0)
-			addCurve(to: G0, controlPoint1: G0, controlPoint2: G0)
-			addLine(to: G0)
-			addCurve(to: D(0, 1.52866471), controlPoint1: D(0.68440646, 0), controlPoint2: D(-0.00000004, 0.68440646))
-			addCurve(to: D(0, 1.52866495), controlPoint1: D(0, 1.52866471), controlPoint2: D(0, 1.52866495))
-			addCurve(to: D(0, 1.52866471), controlPoint1: D(0, 1.52866471), controlPoint2: D(0, 1.52866471))
-			addLine(to: H0)
-			addCurve(to: A(0, 1.52866483), controlPoint1: A(0, 1.52866483), controlPoint2: A(0, 1.52866483))
-			addLine(to: A(0, 1.52866471))
-			addCurve(to: E0, controlPoint1: A(0.00000007, 0.68440652), controlPoint2: A(0.68440658, -0.00000001))
-			addCurve(to: E0, controlPoint1: E0, controlPoint2: E0)
-			addLine(to: E0)
-			close()
-
-		}
-		else {
-
-			let E0 = E(0)
-			let F0 = F(0)
-			let H0 = H(0)
-			let G0 = G(0)
-
-			move(to: E0)
-			addLine(to: E0)
-			addCurve(to: B(1.52866495, 0), controlPoint1: B(1.52866495, 0), controlPoint2: B(1.52866495, 0))
-			addLine(to: B(1.52866495, 0))
-			addCurve(to: F0, controlPoint1: B(0.68440676, 0.00000001), controlPoint2: B(0, 0.68440658))
-			addCurve(to: F0, controlPoint1: F0, controlPoint2: F0)
-			addCurve(to: F0, controlPoint1: F0, controlPoint2: F0)
-			addLine(to: F0)
-			addCurve(to: F0, controlPoint1: F0, controlPoint2: F0)
-			addLine(to: F0)
-			addCurve(to: C(1.52866495, 0), controlPoint1: C(0, 0.68440652), controlPoint2: C(0.68440676, 0))
-			addCurve(to: C(1.52866495, 0), controlPoint1: C(1.52866495, 0), controlPoint2: C(1.52866495, 0))
-			addCurve(to: C(1.52866495, 0), controlPoint1: C(1.52866495, 0), controlPoint2: C(1.52866495, 0))
-			addLine(to: G0)
-			addCurve(to: D(1.52866483, 0), controlPoint1: D(1.52866483, 0), controlPoint2: D(1.52866483, 0))
-			addLine(to: D(1.52866471, 0))
-			addCurve(to: H0, controlPoint1: D(0.68440646, 0), controlPoint2: D(-0.00000004, 0.68440676))
-			addCurve(to: H0, controlPoint1: H0, controlPoint2: H0)
-			addCurve(to: H0, controlPoint1: H0, controlPoint2: H0)
-			addLine(to: H0)
-			addCurve(to: H0, controlPoint1: H0, controlPoint2: H0)
-			addLine(to: H0)
-			addCurve(to: A(1.52866483, 0), controlPoint1: A(0.00000007, 0.68440652), controlPoint2: A(0.68440664, -0.00000001))
-			addCurve(to: A(1.52866483, 0), controlPoint1: A(1.52866483, 0), controlPoint2: A(1.52866483, 0))
-			addLine(to: E0)
-			close()
-
+		func interpolate(from a: CGFloat, to b: CGFloat, by p: CGFloat) -> CGFloat {
+			return a + (b - a) * p
 		}
 
-	}
+        func normalize(_ radius: CGFloat) -> CGFloat {
+            if morphsIntoCircle { return radius.max(max) }
+            else { return radius.max(min) }
+        }
+
+        func interpolationAmount(_ radius: CGFloat) -> CGFloat {
+            let norm = normalize(radius)
+            return (norm - min) / (max - min)
+        }
+
+        func draw(corner: UIRectCorner,
+                  biasX: CGFloat,
+                  biasY: CGFloat,
+                  invertX: Bool,
+                  invertY: Bool,
+                  swap: Bool) {
+
+            let radius = cornerRadii[corner] ?? 0
+
+            let n = normalize(radius)
+            let p = interpolationAmount(radius)
+
+            if morphsIntoCircle {
+				(0..<count).forEach { c[$0] = interpolate(from: coeffs[$0], to: normals[$0], by: p) }
+            } else {
+                (0..<count).forEach { c[$0] = coeffs[$0] }
+            }
+
+            var u: [CGFloat] = [
+                n * c[1], n * c[4],
+                0, n * c[6],
+                n * c[0], n * c[5],
+                n * c[4], n * c[1],
+                n * c[2], n * c[3],
+                n * c[3], n * c[2],
+                n * c[7], 0,
+                n * c[5], n * c[0],
+                n * c[6], 0
+            ]
+
+            if swap {
+                (0..<u.endIndex / 2)
+                    .map { $0 * 2 }
+                    .forEach { u.swapAt($0, $0 + 1) }
+            }
+
+            let ix: CGFloat = invertX ? -1.0 : 1.0
+            let iy: CGFloat = invertY ? -1.0 : 1.0
+            let bx = biasX
+            let by = biasY
+
+            addCurve(to: .init(x: bx + ix * u[0], y: by + iy * u[1]),
+                     controlPoint1: .init(x: bx + ix * u[2], y: by + iy * u[3]),
+                     controlPoint2: .init(x: bx + ix * u[4], y: by + iy * u[5]))
+
+            addCurve(to: .init(x: bx + ix * u[6], y: by + iy * u[7]),
+                     controlPoint1: .init(x: bx + ix * u[8], y: by + iy * u[9]),
+                     controlPoint2: .init(x: bx + ix * u[10], y: by + iy * u[11]))
+
+            addCurve(to: .init(x: bx + ix * u[12], y: by + iy * u[13]),
+                     controlPoint1: .init(x: bx + ix * u[14], y: by + iy * u[15]),
+                     controlPoint2: .init(x: bx + ix * u[16], y: by + iy * u[17]))
+
+        }
+
+
+
+        let width = bounds.size.width
+        let height = bounds.size.height
+
+
+        corners.forEach { corner in
+
+            let radius = cornerRadii[corner] ?? 0
+            let p = interpolationAmount(radius)
+            let n = normalize(radius)
+
+            let value = interpolate(from: coeffs[7], to: 1, by: p)
+
+            switch corner {
+
+            case .topLeft:
+
+                let point = CGPoint(x: 0, y: value * n)
+
+                move(to: point)
+                draw(corner: corner, biasX: 0, biasY: 0, invertX: false, invertY: false, swap: false)
+
+            case .topRight:
+
+                let point = CGPoint(x: width - value * n, y: 0)
+
+                addLine(to: point)
+                draw(corner: corner, biasX: width, biasY: 0, invertX: true, invertY: false, swap: true)
+
+            case .bottomRight:
+
+                let point = CGPoint(x: width, y: height - value * n)
+
+                addLine(to: point)
+                draw(corner: corner, biasX: width, biasY: height, invertX: true, invertY: true, swap: false)
+
+            case .bottomLeft:
+
+                let point = CGPoint(x: value * n, y: height)
+
+                addLine(to: point)
+                draw(corner: corner, biasX: 0, biasY: height, invertX: false, invertY: true, swap: true)
+
+            default: fatalError("Corner \(corner) is not supported")
+            }
+
+        }
+
+        close()
+
+        apply(.init(translationX: bounds.x, y: bounds.y))
+
+    }
 
 }
