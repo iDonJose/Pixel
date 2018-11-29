@@ -47,6 +47,8 @@
 		8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280721AE031300819150 /* Gradient+Initialize.swift */; };
 		82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6370F21AE88EF001B3E30 /* Stroke.swift */; };
 		82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371121AE89D5001B3E30 /* CG+Codable.swift */; };
+		82D6371F21AEEAF9001B3E30 /* NSShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371E21AEEAF9001B3E30 /* NSShadow.swift */; };
+		82D6372521AF4EED001B3E30 /* UIBezierPath+RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6372421AF4EED001B3E30 /* UIBezierPath+RoundedRect.swift */; };
 		AF50FD33B5D7AEBB2BC87DA2 /* Pods_Pixel_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E29487DEA54D71EC9EC57C2 /* Pods_Pixel_iOS.framework */; };
 		BF_99A195F396E51E82B03D503258C787F9 /* Pixel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_51E34CA8A961F1F4C1656F9A85863DD0 /* Pixel.framework */; };
 		BF_C42AE1130C489A46EAF95AE34D977705 /* Pixel.h in Headers */ = {isa = PBXBuildFile; fileRef = FR_9A684BBD7ADEFFE7AE6FA0D20AEA7B5E /* Pixel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,6 +122,8 @@
 		8287280721AE031300819150 /* Gradient+Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Initialize.swift"; sourceTree = "<group>"; };
 		82D6370F21AE88EF001B3E30 /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		82D6371121AE89D5001B3E30 /* CG+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Codable.swift"; sourceTree = "<group>"; };
+		82D6371E21AEEAF9001B3E30 /* NSShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSShadow.swift; sourceTree = "<group>"; };
+		82D6372421AF4EED001B3E30 /* UIBezierPath+RoundedRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+RoundedRect.swift"; sourceTree = "<group>"; };
 		9E29487DEA54D71EC9EC57C2 /* Pods_Pixel_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pixel_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D5C299FB35DF861B44520C /* Pods-Pixel-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixel-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pixel-iOS/Pods-Pixel-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		AB2D3513DEC7E19A975CC8F4 /* Pods-Pixel-Tests-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixel-Tests-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pixel-Tests-iOS/Pods-Pixel-Tests-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				825C1E4021AC6FCC0080D384 /* UIBezierPath.swift */,
+				82D6372421AF4EED001B3E30 /* UIBezierPath+RoundedRect.swift */,
 				825C1E4621AC85010080D384 /* UIBezierPath+Squircle.swift */,
 			);
 			path = UIBezierPath;
@@ -318,6 +323,14 @@
 				8287280321ADAA7000819150 /* Gradient+Colors.swift */,
 			);
 			path = Gradient;
+			sourceTree = "<group>";
+		};
+		82D6371D21AEEAE6001B3E30 /* Foundations */ = {
+			isa = PBXGroup;
+			children = (
+				82D6371E21AEEAF9001B3E30 /* NSShadow.swift */,
+			);
+			path = Foundations;
 			sourceTree = "<group>";
 		};
 		F83B7B057A3D301B13622E5B /* Frameworks */ = {
@@ -361,6 +374,7 @@
 				828727F021AD466E00819150 /* Texture */,
 				825C1DF921AC12670080D384 /* UIKit */,
 				825C1E1921AC3AA70080D384 /* CoreGraphics */,
+				82D6371D21AEEAE6001B3E30 /* Foundations */,
 				825C1DFE21AC13B10080D384 /* Conversions */,
 				825C1E0921AC2C910080D384 /* Operators */,
 			);
@@ -580,7 +594,9 @@
 				82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */,
 				82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */,
 				825C1E2621AC3BEB0080D384 /* UIKit+Hashable.swift in Sources */,
+				82D6371F21AEEAF9001B3E30 /* NSShadow.swift in Sources */,
 				825C1E0821AC2C090080D384 /* CGSize+Conversion.swift in Sources */,
+				82D6372521AF4EED001B3E30 /* UIBezierPath+RoundedRect.swift in Sources */,
 				825C1E0F21AC30740080D384 /* CGVector+Algebra.swift in Sources */,
 				8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */,
 				825C1E3821AC4E5F0080D384 /* CGVector.swift in Sources */,

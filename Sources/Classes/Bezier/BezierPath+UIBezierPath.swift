@@ -8,8 +8,8 @@
 // swiftlint:disable force_cast
 
 #if USE_SVG
-
 import SVGPath
+#endif
 
 
 
@@ -22,6 +22,7 @@ extension BezierPath {
 	public var pathForBounds: (CGRect) -> UIBezierPath {
 		switch self {
 
+        #if USE_SVG
 		case let .svg(svg, size, insets):
 
 			let path = UIBezierPath()
@@ -43,6 +44,7 @@ extension BezierPath {
 
 				return bezierPath
 			}
+        #endif
 
 		case let .rect(insets):
 
@@ -56,7 +58,7 @@ extension BezierPath {
 
 			return { _bounds in
 
-				var bounds = _bounds.inset(by: insets)
+				let bounds = _bounds.inset(by: insets)
 				let diameter = min(bounds.width, bounds.height)
 
 				let newBounds = CGRect(origin: bounds.origin + (bounds.size.to.cgPoint - .one * diameter) / 2,
@@ -65,31 +67,39 @@ extension BezierPath {
 				return UIBezierPath(ovalIn: newBounds)
 			}
 
-		case let .roundedRect(corners, cornerRadius, isRelative, insets):
+		case let .roundedRect(cornerRadii, isRelative, insets):
 
-			return { bounds in
+			return { _bounds in
 
-				var cornerRadii = cornerRadius.to.cgSize
+				let bounds = _bounds.inset(by: insets)
 
-				if isRelative {
-					cornerRadii.width *= bounds.width
-					cornerRadii.height *= bounds.height
-				}
+				var cornerRadii = cornerRadii
 
-				return UIBezierPath(roundedRect: bounds.inset(by: insets),
-									byRoundingCorners: corners,
+                if isRelative {
+                    let length = min(bounds.width, bounds.height)
+                    cornerRadii = cornerRadii.mapValues { $0 * length }
+                }
+
+				return UIBezierPath(roundedRectIn: bounds,
 									cornerRadii: cornerRadii)
 			}
 
-		case let .squircle(cornerRadius, isRelative, insets):
+		case let .squircle(cornerRadii, isRelative, morphsIntoCircle, insets):
 
-			return { bounds in
+			return { _bounds in
 
-				var radius = cornerRadius
-				if isRelative { radius *= min(bounds.width, bounds.height) }
+				let bounds = _bounds.inset(by: insets)
 
-				return UIBezierPath(squircleIn: bounds.inset(by: insets),
-									cornerRadius: radius)
+				var cornerRadii = cornerRadii
+
+                if isRelative {
+                    let length = min(bounds.width, bounds.height)
+                    cornerRadii = cornerRadii.mapValues { $0 * length }
+                }
+
+				return UIBezierPath(squircleIn: bounds,
+                                    cornerRadii: cornerRadii,
+                                    morphsIntoCircle: morphsIntoCircle)
 			}
 
 		case let .arc(_radius, isRelative, startAngle, endAngle, insets):
@@ -112,5 +122,3 @@ extension BezierPath {
 	}
 
 }
-
-#endif

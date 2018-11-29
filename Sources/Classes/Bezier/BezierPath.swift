@@ -9,16 +9,25 @@
 /// A Bezier path representation
 public enum BezierPath: Hashable, Codable {
 
+    #if USE_SVG
 	case svg([String], bounds: CGSize, insets: UIEdgeInsets)
+    #endif
 	case rect(insets: UIEdgeInsets)
-	case roundedRect(corners: UIRectCorner, cornerRadius: CGPoint, isRelative: Bool, insets: UIEdgeInsets)
+	case roundedRect(cornerRadii: [UIRectCorner: CGFloat], isRelative: Bool, insets: UIEdgeInsets)
 	case oval(insets: UIEdgeInsets)
 	case circle(insets: UIEdgeInsets)
-	case squircle(cornerRadius: CGFloat, isRelative: Bool, insets: UIEdgeInsets)
+    case squircle(cornerRadii: [UIRectCorner: CGFloat], isRelative: Bool, morphsIntoCircle: Bool, insets: UIEdgeInsets)
 	case arc(radius: CGFloat, isRelative: Bool, startAngle: CGFloat, endAngle: CGFloat, insets: UIEdgeInsets)
 
 
-	// MARK: Codable
+    // MARK: - Initialize
+
+    public init() {
+        self = .rect(insets: .zero)
+    }
+
+
+	// MARK: - Codable
 
 	private enum CodingKeys: String, CodingKey {
 
@@ -30,8 +39,10 @@ public enum BezierPath: Hashable, Codable {
 		case insets
 
 		case corners
-		case cornerRadius
+        case cornerRadii
 		case isRelative
+
+        case morphsIntoCircle
 
 		case radius
 		case startAngle
@@ -42,7 +53,9 @@ public enum BezierPath: Hashable, Codable {
 	/// Name
 	private var name: String {
 		switch self {
+        #if USE_SVG
 		case .svg: return "svg"
+        #endif
 		case .rect: return "rect"
 		case .roundedRect: return "roundedRect"
 		case .oval: return "oval"
@@ -62,6 +75,7 @@ public enum BezierPath: Hashable, Codable {
 
 		switch type {
 
+        #if USE_SVG
 		case "svg":
 
 			let svg = try container.decode([String].self, forKey: .svg)
@@ -71,6 +85,7 @@ public enum BezierPath: Hashable, Codable {
 			self = .svg(svg,
 						bounds: bounds,
 						insets: insets)
+        #endif
 
 		case "rect":
 
@@ -80,13 +95,11 @@ public enum BezierPath: Hashable, Codable {
 
 		case "roundedRect":
 
-			let corners = try container.decode(UIRectCorner.self, forKey: .corners)
-			let cornerRadius = try container.decode(CGPoint.self, forKey: .cornerRadius)
+			let cornerRadii = try container.decode([UIRectCorner: CGFloat].self, forKey: .cornerRadii)
 			let isRelative = try container.decode(Bool.self, forKey: .isRelative)
 			let insets = try container.decode(UIEdgeInsets.self, forKey: .insets)
 
-			self = .roundedRect(corners: corners,
-								cornerRadius: cornerRadius,
+			self = .roundedRect(cornerRadii: cornerRadii,
 								isRelative: isRelative,
 								insets: insets)
 
@@ -104,12 +117,14 @@ public enum BezierPath: Hashable, Codable {
 
 		case "squircle":
 
-			let cornerRadius = try container.decode(CGFloat.self, forKey: .cornerRadius)
+            let cornerRadii = try container.decode([UIRectCorner: CGFloat].self, forKey: .cornerRadii)
 			let isRelative = try container.decode(Bool.self, forKey: .isRelative)
+            let morphsIntoCircle = try container.decode(Bool.self, forKey: .morphsIntoCircle)
 			let insets = try container.decode(UIEdgeInsets.self, forKey: .insets)
 
-			self = .squircle(cornerRadius: cornerRadius,
-							 isRelative: isRelative,
+			self = .squircle(cornerRadii: cornerRadii,
+                             isRelative: isRelative,
+                             morphsIntoCircle: morphsIntoCircle,
 							 insets: insets)
 
 		case "arc":
@@ -137,12 +152,14 @@ public enum BezierPath: Hashable, Codable {
 
 		switch self {
 
+        #if USE_SVG
 		case let .svg(svg, bounds, insets):
 
 			try container.encode(name, forKey: .type)
 			try container.encode(svg, forKey: .svg)
 			try container.encode(bounds, forKey: .bounds)
-			try container.encode(insets, forKey: .insets)
+            try container.encode(insets, forKey: .insets)
+        #endif
 
 		case let .rect(insets):
 
@@ -159,19 +176,19 @@ public enum BezierPath: Hashable, Codable {
 			try container.encode(name, forKey: .type)
 			try container.encode(insets, forKey: .insets)
 
-		case let .roundedRect(corners, cornerRadius, isRelative, insets):
+		case let .roundedRect(cornerRadii, isRelative, insets):
 
 			try container.encode(name, forKey: .type)
-			try container.encode(corners, forKey: .corners)
-			try container.encode(cornerRadius, forKey: .cornerRadius)
+			try container.encode(cornerRadii, forKey: .cornerRadii)
 			try container.encode(isRelative, forKey: .isRelative)
 			try container.encode(insets, forKey: .insets)
 
-		case let .squircle(cornerRadius, isRelative, insets):
+		case let .squircle(cornerRadii, isRelative, morphsIntoCircle, insets):
 
 			try container.encode(name, forKey: .type)
-			try container.encode(cornerRadius, forKey: .cornerRadius)
+			try container.encode(cornerRadii, forKey: .cornerRadii)
 			try container.encode(isRelative, forKey: .isRelative)
+            try container.encode(morphsIntoCircle, forKey: .morphsIntoCircle)
 			try container.encode(insets, forKey: .insets)
 
 		case let .arc(radius, isRelative, startAngle, endAngle, insets):
