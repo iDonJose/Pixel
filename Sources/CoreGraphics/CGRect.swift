@@ -20,18 +20,6 @@ extension CGRect {
 		set { origin.y = newValue }
 	}
 
-	/// Width
-	public var width: CGFloat {
-		get { return size.width }
-		set { size.width = newValue }
-	}
-
-	/// Height
-	public var height: CGFloat {
-		get { return size.height }
-		set { size.height = newValue }
-	}
-
 
 	/// Center
 	public var center: CGPoint {
