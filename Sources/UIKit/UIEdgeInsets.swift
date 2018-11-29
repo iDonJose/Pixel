@@ -50,6 +50,8 @@ extension UIEdgeInsets {
 				  right: edges.contains(.right) ? value : 0)
 	}
 
+	/// Insets with all values equal to one
+	public static let one = UIEdgeInsets(edges: .all, value: 1)
 
 
 	// MARK: - Filtering
