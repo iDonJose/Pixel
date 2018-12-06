@@ -16,9 +16,9 @@ extension UIBezierPath {
 
 		let length = min(width, height)
 
-		guard !(cornerRadii[.allCorners] == length / 2) else {
-			self.init(ovalIn: .init(origin: bounds.origin,
-									size: .one * length))
+		guard !(cornerRadii[.allCorners] == length / 2
+            && bounds.width == bounds.height) else {
+			self.init(ovalIn: bounds)
 			return
 		}
 
@@ -59,6 +59,8 @@ extension UIBezierPath {
 		let maxY = bounds.maxY
 
 
+        move(to: bounds.center)
+
 		var center = CGPoint(x: minX + tlRadius, y: minY + tlRadius)
 
 		if tlRadius == 0 {
@@ -98,7 +100,7 @@ extension UIBezierPath {
 			addLine(to: center)
 		}
 		else {
-			addLine(to: CGPoint(x: minX - blRadius, y: maxY))
+			addLine(to: CGPoint(x: minX + blRadius, y: maxY))
 			addArc(withCenter: center, radius: blRadius, startAngle: .pi * 0.5, endAngle: .pi, clockwise: true)
 		}
 
