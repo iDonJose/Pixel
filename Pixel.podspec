@@ -20,11 +20,6 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = "9.0"
 
-	s.exclude_files = [
-		"Sources/Classes/Bezier/BezierPath+UIBezierPath.swift"
-	]
-
-
 
 	s.subspec 'Core' do |core|
 		core.frameworks = "Foundation", "UIKit"
