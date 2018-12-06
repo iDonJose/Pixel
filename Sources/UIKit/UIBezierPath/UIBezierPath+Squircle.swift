@@ -16,9 +16,9 @@ extension UIBezierPath {
 
 		let length = Swift.min(bounds.width, bounds.height)
 
-		guard !(morphsIntoCircle && cornerRadii[.allCorners] == length / 2) else {
-			self.init(ovalIn: .init(origin: bounds.origin,
-									size: .one * length))
+		guard !(morphsIntoCircle && cornerRadii[.allCorners] == length / 2
+            && bounds.width == bounds.height) else {
+			self.init(ovalIn: bounds)
 			return
 		}
 
