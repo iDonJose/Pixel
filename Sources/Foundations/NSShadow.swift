@@ -5,8 +5,6 @@
 //  Created by José Donor on 28/11/2018.
 //
 
-// swiftlint:disable force_cast
-
 
 extension NSShadow {
 
