@@ -45,6 +45,7 @@
 		8287280421ADAA7000819150 /* Gradient+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280321ADAA7000819150 /* Gradient+Colors.swift */; };
 		8287280621ADB38A00819150 /* Gradient+CG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280521ADB38A00819150 /* Gradient+CG.swift */; };
 		8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280721AE031300819150 /* Gradient+Initialize.swift */; };
+		82A18AA021B98B7000ED070D /* DisplayLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A18A9F21B98B7000ED070D /* DisplayLink.swift */; };
 		82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6370F21AE88EF001B3E30 /* Stroke.swift */; };
 		82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371121AE89D5001B3E30 /* CG+Codable.swift */; };
 		82D6371F21AEEAF9001B3E30 /* NSShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371E21AEEAF9001B3E30 /* NSShadow.swift */; };
@@ -121,6 +122,7 @@
 		8287280321ADAA7000819150 /* Gradient+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Colors.swift"; sourceTree = "<group>"; };
 		8287280521ADB38A00819150 /* Gradient+CG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+CG.swift"; sourceTree = "<group>"; };
 		8287280721AE031300819150 /* Gradient+Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Initialize.swift"; sourceTree = "<group>"; };
+		82A18A9F21B98B7000ED070D /* DisplayLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLink.swift; sourceTree = "<group>"; };
 		82D6370F21AE88EF001B3E30 /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		82D6371121AE89D5001B3E30 /* CG+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Codable.swift"; sourceTree = "<group>"; };
 		82D6371E21AEEAF9001B3E30 /* NSShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSShadow.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				828727F721AD84FF00819150 /* Bezier */,
 				828727F821AD850D00819150 /* Color.swift */,
+				82A18A9F21B98B7000ED070D /* DisplayLink.swift */,
 				8287280021ADA57E00819150 /* Gradient */,
 				82D6370F21AE88EF001B3E30 /* Stroke.swift */,
 				82E0689021B1D7480002CDAC /* Shadow.swift */,
@@ -590,6 +593,7 @@
 				825C1E4721AC85010080D384 /* UIBezierPath+Squircle.swift in Sources */,
 				8287280221ADA74100819150 /* Gradient.swift in Sources */,
 				828727F921AD850D00819150 /* Color.swift in Sources */,
+				82A18AA021B98B7000ED070D /* DisplayLink.swift in Sources */,
 				828727E821AD3AAA00819150 /* UIEdgeInsets.swift in Sources */,
 				828727F621AD48B500819150 /* CGFloat+Conversion.swift in Sources */,
 				825C1E3C21AC6AA00080D384 /* CGRect.swift in Sources */,
@@ -778,7 +782,7 @@
 				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -warn-long-function-bodies=120 -Xfrontend -warn-long-expression-type-checking=120 -D USE_TEXTURE -D USE_SVG";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xfrontend -warn-long-function-bodies=125 -Xfrontend -warn-long-expression-type-checking=125 -D USE_TEXTURE -D USE_SVG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.iDonJose.Pixel;
 				PRODUCT_NAME = Pixel;
 				SDKROOT = iphoneos;
