@@ -55,6 +55,10 @@ extension CGFloat {
 			return value.description
 		}
 
+        public var nsNumber: NSNumber {
+            return NSNumber(value: double)
+        }
+
 
 		#if USE_TEXTURE
 		public var points: ASDimension {
