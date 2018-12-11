@@ -24,9 +24,11 @@ extension CGFloat {
 	}
 
 	/// Restricts value to a given range.
-	public func `in`(_ minimum: CGFloat,
-					 _ maximum: CGFloat) -> CGFloat {
-		return min(minimum).max(maximum)
+	public func `in`(_ a: CGFloat,
+					 _ b: CGFloat) -> CGFloat {
+        return a < b
+            ? min(a).max(b)
+            : min(b).max(a)
 	}
 
 	/// Rounds down to nearest integer.
