@@ -16,12 +16,12 @@ public struct Stroke: Equatable, Codable {
 
 
 	public var width: CGFloat
+    public var alignment: Alignment
 	public var cap: CGLineCap
 	public var join: CGLineJoin
 	public var dash: CGFloat
 	public var gap: CGFloat
 	public var phase: CGFloat
-	public var alignment: Alignment
 
 
 	// MARK: - Initialize
@@ -31,20 +31,20 @@ public struct Stroke: Equatable, Codable {
 	}
 
 	public init(width: CGFloat = 1,
+                alignment: Alignment = .in,
 				cap: CGLineCap = .round,
 				join: CGLineJoin = .round,
 				dash: CGFloat = 0,
 				gap: CGFloat = 0,
-				phase: CGFloat = 0,
-				alignment: Alignment = .center) {
+				phase: CGFloat = 0) {
 
 		self.width = width
+        self.alignment = alignment
 		self.cap = cap
 		self.join = join
 		self.dash = dash
 		self.gap = gap
 		self.phase = phase
-		self.alignment = alignment
 
 	}
 
