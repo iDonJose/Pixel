@@ -45,6 +45,7 @@
 		8287280421ADAA7000819150 /* Gradient+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280321ADAA7000819150 /* Gradient+Colors.swift */; };
 		8287280621ADB38A00819150 /* Gradient+CG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280521ADB38A00819150 /* Gradient+CG.swift */; };
 		8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280721AE031300819150 /* Gradient+Initialize.swift */; };
+		82891BFC21C71B4B0003511D /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82891BFB21C71B4B0003511D /* CALayer.swift */; };
 		82A18AA021B98B7000ED070D /* DisplayLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A18A9F21B98B7000ED070D /* DisplayLink.swift */; };
 		82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6370F21AE88EF001B3E30 /* Stroke.swift */; };
 		82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371121AE89D5001B3E30 /* CG+Codable.swift */; };
@@ -122,6 +123,7 @@
 		8287280321ADAA7000819150 /* Gradient+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Colors.swift"; sourceTree = "<group>"; };
 		8287280521ADB38A00819150 /* Gradient+CG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+CG.swift"; sourceTree = "<group>"; };
 		8287280721AE031300819150 /* Gradient+Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Initialize.swift"; sourceTree = "<group>"; };
+		82891BFB21C71B4B0003511D /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		82A18A9F21B98B7000ED070D /* DisplayLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLink.swift; sourceTree = "<group>"; };
 		82D6370F21AE88EF001B3E30 /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		82D6371121AE89D5001B3E30 /* CG+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Codable.swift"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		825C1E1921AC3AA70080D384 /* CoreGraphics */ = {
 			isa = PBXGroup;
 			children = (
+				82891BFB21C71B4B0003511D /* CALayer.swift */,
 				825C1DFC21AC13550080D384 /* CGColor.swift */,
 				825C1E3521AC4DE00080D384 /* CGFloat.swift */,
 				825C1E3321AC4C920080D384 /* CGPoint.swift */,
@@ -609,6 +612,7 @@
 				82E0689121B1D7480002CDAC /* Shadow.swift in Sources */,
 				825C1E3821AC4E5F0080D384 /* CGVector.swift in Sources */,
 				825C1E3421AC4C920080D384 /* CGPoint.swift in Sources */,
+				82891BFC21C71B4B0003511D /* CALayer.swift in Sources */,
 				825C1E3A21AC4EB00080D384 /* CGSize.swift in Sources */,
 				825C1E1521AC35C60080D384 /* CATransform3D+Algebra.swift in Sources */,
 			);

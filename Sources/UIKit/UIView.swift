@@ -29,4 +29,9 @@ extension UIView {
 
 	}
 
+	/// Changes anchor point will keeping the layer at the same position
+	public func change(anchor: CGPoint) {
+		layer.change(anchor: anchor)
+	}
+
 }
