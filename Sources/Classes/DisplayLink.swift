@@ -12,7 +12,7 @@ public final class DisplayLink: NSObject {
 	private lazy var displayLink: CADisplayLink? = CADisplayLink(target: self, selector: #selector(didUpdate(displaylink:)))
 
 	/// Update block
-    private var update: ((_ timestamp: Double, _ isCompleted: Bool) -> Void)?
+    private var update: ((_ timestamp: Double, _ isCompleted: Bool, _ isCanceled: Bool) -> Void)?
 
 	/// Lifespan
 	private let lifespan: Double?
@@ -25,7 +25,7 @@ public final class DisplayLink: NSObject {
 
 	public init(lifespan: Double? = nil,
 				fps: Int = 0,
-				update: @escaping (_ timestamp: Double, _ isCompleted: Bool) -> Void) {
+				update: @escaping (_ timestamp: Double, _ isCompleted: Bool, _ isCanceled: Bool) -> Void) {
 
 		self.lifespan = lifespan
 		self.update = update
@@ -49,6 +49,11 @@ public final class DisplayLink: NSObject {
 	// MARK: - Clean up
 
 	public func invalidate() {
+
+        if let timestamp = displayLink?.timestamp {
+            update?(timestamp, false, true)
+        }
+
         update = nil
 		displayLink?.invalidate()
 		displayLink = nil
@@ -78,7 +83,7 @@ public final class DisplayLink: NSObject {
         }
 
 
-		update?(timestamp, isCompleted)
+		update?(timestamp, isCompleted, false)
 
         if isCompleted { invalidate() }
 
