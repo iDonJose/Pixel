@@ -5,8 +5,6 @@
 //  Created by José Donor on 27/11/2018.
 //
 
-// swiftlint:disable shorthand_operator
-
 
 extension Gradient {
 
@@ -107,8 +105,8 @@ extension Gradient {
 
 			let length = min(bounds.width, bounds.height)
 
-			startRadius = startRadius * length
-			endRadius = endRadius * length
+			startRadius *= length
+			endRadius *= length
 
 		}
 

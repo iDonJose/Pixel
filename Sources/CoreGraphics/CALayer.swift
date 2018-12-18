@@ -5,8 +5,6 @@
 //  Created by José Donor on 17/12/2018.
 //
 
-// swiftlint:disable shorthand_operator
-
 import UIKit
 
 
@@ -32,7 +30,7 @@ extension CALayer {
 		/// Translation induced by new anchor point
 		let delta = point_new - point_old
 
-		position = position + delta
+		position += delta
 		anchorPoint = anchor
 
 	}
