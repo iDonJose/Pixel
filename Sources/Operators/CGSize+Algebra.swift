@@ -5,6 +5,8 @@
 //  Created by José Donor on 26/11/2018.
 //
 
+// swiftlint:disable shorthand_operator
+
 
 extension CGSize {
 
@@ -63,6 +65,25 @@ extension CGSize {
 	public static func - (lhs: CGSize, rhs: UIEdgeInsets) -> CGSize {
 		return CGSize(width: lhs.width - (rhs.left + rhs.right),
 					  height: lhs.height - (rhs.top + rhs.bottom))
+	}
+
+
+	// MARK: - Shorthands
+
+	public static func += (lhs: inout CGSize, rhs: CGSize) {
+		lhs = lhs + rhs
+	}
+
+	public static func -= (lhs: inout CGSize, rhs: CGSize) {
+		lhs = lhs - rhs
+	}
+
+	public static func *= (lhs: inout CGSize, rhs: CGFloat) {
+		lhs = lhs * rhs
+	}
+
+	public static func /= (lhs: inout CGSize, rhs: CGFloat) {
+		lhs = lhs / rhs
 	}
 
 }

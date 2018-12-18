@@ -5,6 +5,8 @@
 //  Created by José Donor on 26/11/2018.
 //
 
+// swiftlint:disable shorthand_operator
+
 
 extension CATransform3D {
 
@@ -48,6 +50,25 @@ extension CATransform3D {
 
 	public static func * (lhs: CATransform3D, rhs: CATransform3D) -> CATransform3D {
 		return CATransform3DConcat(lhs, rhs)
+	}
+
+
+	// MARK: - Shorthands
+
+	public static func += (lhs: inout CATransform3D, rhs: CATransform3D) {
+		lhs = lhs + rhs
+	}
+
+	public static func -= (lhs: inout CATransform3D, rhs: CATransform3D) {
+		lhs = lhs - rhs
+	}
+
+	public static func *= (lhs: inout CATransform3D, rhs: CATransform3D) {
+		lhs = lhs * rhs
+	}
+
+	public static func /= (lhs: inout CATransform3D, rhs: CGFloat) {
+		lhs = lhs / rhs
 	}
 
 }

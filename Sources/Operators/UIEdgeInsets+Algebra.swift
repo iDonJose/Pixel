@@ -5,6 +5,8 @@
 //  Created by José Donor on 26/11/2018.
 //
 
+// swiftlint:disable shorthand_operator
+
 
 extension UIEdgeInsets {
 
@@ -43,6 +45,25 @@ extension UIEdgeInsets {
 	public static func / (lhs: UIEdgeInsets, rhs: CGFloat) -> UIEdgeInsets {
 		guard rhs != 0 else { fatalError("Can't divide by 0") }
 		return lhs * (1 / rhs)
+	}
+
+
+	// MARK: - Shorthands
+
+	public static func += (lhs: inout UIEdgeInsets, rhs: UIEdgeInsets) {
+		lhs = lhs + rhs
+	}
+
+	public static func -= (lhs: inout UIEdgeInsets, rhs: UIEdgeInsets) {
+		lhs = lhs - rhs
+	}
+
+	public static func *= (lhs: inout UIEdgeInsets, rhs: CGFloat) {
+		lhs = lhs * rhs
+	}
+
+	public static func /= (lhs: inout UIEdgeInsets, rhs: CGFloat) {
+		lhs = lhs / rhs
 	}
 
 }

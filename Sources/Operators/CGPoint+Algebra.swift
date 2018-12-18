@@ -5,6 +5,8 @@
 //  Created by José Donor on 26/11/2018.
 //
 
+// swiftlint:disable shorthand_operator
+
 
 extension CGPoint {
 
@@ -44,6 +46,25 @@ extension CGPoint {
 
 	public static func * (lhs: CGPoint, rhs: CGPoint) -> CGFloat {
 		return lhs.x * rhs.x + lhs.y * rhs.y
+	}
+
+
+	// MARK: - Shorthands
+
+	public static func += (lhs: inout CGPoint, rhs: CGPoint) {
+		lhs = lhs + rhs
+	}
+
+	public static func -= (lhs: inout CGPoint, rhs: CGPoint) {
+		lhs = lhs - rhs
+	}
+
+	public static func *= (lhs: inout CGPoint, rhs: CGFloat) {
+		lhs = lhs * rhs
+	}
+
+	public static func /= (lhs: inout CGPoint, rhs: CGFloat) {
+		lhs = lhs / rhs
 	}
 
 }

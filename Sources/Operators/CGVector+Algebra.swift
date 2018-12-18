@@ -5,6 +5,8 @@
 //  Created by José Donor on 26/11/2018.
 //
 
+// swiftlint:disable shorthand_operator
+
 
 extension CGVector {
 
@@ -45,6 +47,25 @@ extension CGVector {
 
 	public static func * (lhs: CGVector, rhs: CGVector) -> CGFloat {
 		return lhs.dx * rhs.dx + lhs.dy * rhs.dy
+	}
+
+
+	// MARK: - Shorthands
+
+	public static func += (lhs: inout CGPoint, rhs: CGVector) {
+		lhs = lhs + rhs
+	}
+
+	public static func -= (lhs: inout CGPoint, rhs: CGVector) {
+		lhs = lhs - rhs
+	}
+
+	public static func *= (lhs: inout CGVector, rhs: CGFloat) {
+		lhs = lhs * rhs
+	}
+
+	public static func /= (lhs: inout CGVector, rhs: CGFloat) {
+		lhs = lhs / rhs
 	}
 
 }

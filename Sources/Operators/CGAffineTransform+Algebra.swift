@@ -5,6 +5,8 @@
 //  Created by José Donor on 26/11/2018.
 //
 
+// swiftlint:disable shorthand_operator
+
 
 extension CGAffineTransform {
 
@@ -46,6 +48,25 @@ extension CGAffineTransform {
 
 	public static func * (lhs: CGAffineTransform, rhs: CGAffineTransform) -> CGAffineTransform {
 		return lhs.concatenating(rhs)
+	}
+
+
+	// MARK: - Shorthands
+
+	public static func += (lhs: inout CGAffineTransform, rhs: CGAffineTransform) {
+		lhs = lhs + rhs
+	}
+
+	public static func -= (lhs: inout CGAffineTransform, rhs: CGAffineTransform) {
+		lhs = lhs - rhs
+	}
+
+	public static func *= (lhs: inout CGAffineTransform, rhs: CGAffineTransform) {
+		lhs = lhs * rhs
+	}
+
+	public static func /= (lhs: inout CGAffineTransform, rhs: CGFloat) {
+		lhs = lhs / rhs
 	}
 
 }
