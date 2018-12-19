@@ -47,6 +47,7 @@
 		8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280721AE031300819150 /* Gradient+Initialize.swift */; };
 		82891BFC21C71B4B0003511D /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82891BFB21C71B4B0003511D /* CALayer.swift */; };
 		82A18AA021B98B7000ED070D /* DisplayLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A18A9F21B98B7000ED070D /* DisplayLink.swift */; };
+		82A4F6A421CAF0D500D6F6D5 /* ASScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A4F6A321CAF0D500D6F6D5 /* ASScrollDirection.swift */; };
 		82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6370F21AE88EF001B3E30 /* Stroke.swift */; };
 		82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371121AE89D5001B3E30 /* CG+Codable.swift */; };
 		82D6371F21AEEAF9001B3E30 /* NSShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371E21AEEAF9001B3E30 /* NSShadow.swift */; };
@@ -125,6 +126,7 @@
 		8287280721AE031300819150 /* Gradient+Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Initialize.swift"; sourceTree = "<group>"; };
 		82891BFB21C71B4B0003511D /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		82A18A9F21B98B7000ED070D /* DisplayLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLink.swift; sourceTree = "<group>"; };
+		82A4F6A321CAF0D500D6F6D5 /* ASScrollDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASScrollDirection.swift; sourceTree = "<group>"; };
 		82D6370F21AE88EF001B3E30 /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		82D6371121AE89D5001B3E30 /* CG+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Codable.swift"; sourceTree = "<group>"; };
 		82D6371E21AEEAF9001B3E30 /* NSShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSShadow.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				828727F321AD482600819150 /* ASButtonNode.swift */,
+				82A4F6A321CAF0D500D6F6D5 /* ASScrollDirection.swift */,
 			);
 			path = Texture;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				828727F621AD48B500819150 /* CGFloat+Conversion.swift in Sources */,
 				825C1E3C21AC6AA00080D384 /* CGRect.swift in Sources */,
 				825C1E0B21AC2CCA0080D384 /* CGPoint+Algebra.swift in Sources */,
+				82A4F6A421CAF0D500D6F6D5 /* ASScrollDirection.swift in Sources */,
 				82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */,
 				82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */,
 				825C1E2621AC3BEB0080D384 /* UIKit+Hashable.swift in Sources */,
