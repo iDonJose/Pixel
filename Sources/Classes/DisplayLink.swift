@@ -32,13 +32,31 @@ public final class DisplayLink: NSObject {
 
 		super.init()
 
-		if #available(iOS 10.0, *) {
-			displayLink!.preferredFramesPerSecond = fps
-		}
-
+        set(fps: fps)
 		displayLink!.add(to: .current, forMode: RunLoop.Mode.common)
 
 	}
+
+    private func set(fps fps_target: Int) {
+
+        guard fps_target != 0 else { return }
+
+
+        let fps_max: Int
+
+        if #available(iOS 10.0, *) { fps_max = displayLink!.preferredFramesPerSecond }
+        else { fps_max = 60 }
+
+        var i = 2
+        while fps_target <= fps_max / i { i += 1 }
+        i -= 1
+        
+        let fps = fps_max / i
+
+        if #available(iOS 10.0, *) { displayLink!.preferredFramesPerSecond = fps }
+        else { displayLink!.frameInterval = i }
+
+    }
 
 	deinit {
 		invalidate()
