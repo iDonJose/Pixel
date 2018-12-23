@@ -46,6 +46,7 @@
 		8287280621ADB38A00819150 /* Gradient+CG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280521ADB38A00819150 /* Gradient+CG.swift */; };
 		8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280721AE031300819150 /* Gradient+Initialize.swift */; };
 		82891BFC21C71B4B0003511D /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82891BFB21C71B4B0003511D /* CALayer.swift */; };
+		8289C81D21D0480F00D0052D /* ASRangeTuningParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8289C81C21D0480F00D0052D /* ASRangeTuningParameters.swift */; };
 		82A18AA021B98B7000ED070D /* DisplayLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A18A9F21B98B7000ED070D /* DisplayLink.swift */; };
 		82A4F6A421CAF0D500D6F6D5 /* ASScrollDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A4F6A321CAF0D500D6F6D5 /* ASScrollDirection.swift */; };
 		82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6370F21AE88EF001B3E30 /* Stroke.swift */; };
@@ -125,6 +126,7 @@
 		8287280521ADB38A00819150 /* Gradient+CG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+CG.swift"; sourceTree = "<group>"; };
 		8287280721AE031300819150 /* Gradient+Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Initialize.swift"; sourceTree = "<group>"; };
 		82891BFB21C71B4B0003511D /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		8289C81C21D0480F00D0052D /* ASRangeTuningParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASRangeTuningParameters.swift; sourceTree = "<group>"; };
 		82A18A9F21B98B7000ED070D /* DisplayLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLink.swift; sourceTree = "<group>"; };
 		82A4F6A321CAF0D500D6F6D5 /* ASScrollDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASScrollDirection.swift; sourceTree = "<group>"; };
 		82D6370F21AE88EF001B3E30 /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			isa = PBXGroup;
 			children = (
 				828727F321AD482600819150 /* ASButtonNode.swift */,
+				8289C81C21D0480F00D0052D /* ASRangeTuningParameters.swift */,
 				82A4F6A321CAF0D500D6F6D5 /* ASScrollDirection.swift */,
 			);
 			path = Texture;
@@ -596,6 +599,7 @@
 				825C1E3F21AC6E220080D384 /* UIKit+Codable.swift in Sources */,
 				825C1E0D21AC2DBB0080D384 /* CGSize+Algebra.swift in Sources */,
 				828727FF21AD988F00819150 /* BezierPath+UIBezierPath.swift in Sources */,
+				8289C81D21D0480F00D0052D /* ASRangeTuningParameters.swift in Sources */,
 				825C1E4721AC85010080D384 /* UIBezierPath+Squircle.swift in Sources */,
 				8287280221ADA74100819150 /* Gradient.swift in Sources */,
 				828727F921AD850D00819150 /* Color.swift in Sources */,
