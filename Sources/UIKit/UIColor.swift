@@ -63,7 +63,7 @@ extension UIColor {
 	/// RGBA Hexadecimal representation '#RRGGBBAA'.
 	public var rgbaHex: String {
 		let (red, green, blue, alpha) = RGBA
-		return String(format: "#%02X%02X%02X%02X", Int(red * 255), Int(green * 255), Int(blue * 255), Int(blue * alpha))
+		return String(format: "#%02X%02X%02X%02X", Int(red * 255), Int(green * 255), Int(blue * 255), Int(alpha * 255))
 	}
 
 
