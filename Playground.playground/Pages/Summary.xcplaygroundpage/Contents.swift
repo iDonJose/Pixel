@@ -8,13 +8,12 @@
 
  ***
 
- # <Framework>
+ # Pixel
  `<Framework>` adds handy methods derived of dayly use of the awesome `ReactiveSwift` framework in concrete projects.
 
  ### Summary
 
- **Property Operators**
- - [`ping()`](Ping) : Pings a MutableProperty
- - [`toggle()`](Toggle) : Toggles a MutableProperty of Bool
+ **Classes**
+ - [`Gradient`](Gradient) : Gradient representation, drawable
 
  */
