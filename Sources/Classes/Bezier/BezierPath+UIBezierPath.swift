@@ -15,10 +15,12 @@ import SVGPath
 
 extension BezierPath {
 
+	/// Generates a UIBezierPath
 	public func path(for bounds: CGRect) -> UIBezierPath {
 		return pathForBounds(bounds)
 	}
 
+	/// Create a closure returning an UIBezierPath
 	public var pathForBounds: (CGRect) -> UIBezierPath {
 		switch self {
 

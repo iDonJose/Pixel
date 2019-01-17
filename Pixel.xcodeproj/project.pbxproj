@@ -322,9 +322,9 @@
 		828727F721AD84FF00819150 /* Bezier */ = {
 			isa = PBXGroup;
 			children = (
-				825C1E4321AC70910080D384 /* BezierCurve.swift */,
 				828727FC21AD867600819150 /* BezierPath.swift */,
 				828727FE21AD988F00819150 /* BezierPath+UIBezierPath.swift */,
+				825C1E4321AC70910080D384 /* BezierCurve.swift */,
 			);
 			path = Bezier;
 			sourceTree = "<group>";

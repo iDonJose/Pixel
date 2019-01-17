@@ -10,13 +10,20 @@
 public enum BezierPath: Hashable, Codable {
 
     #if USE_SVG
+	/// Bezier path represented by SVGs
 	case svg([String], bounds: CGSize, insets: UIEdgeInsets)
     #endif
+	/// Bezier path of a rectangle
 	case rect(insets: UIEdgeInsets)
+	/// Bezier path of a rectangle with rounded corners
 	case roundedRect(cornerRadii: [UIRectCorner: CGFloat], isRelative: Bool, insets: UIEdgeInsets)
+	/// Bezier path of an oval
 	case oval(insets: UIEdgeInsets)
+	/// Bezier path of a circle
 	case circle(insets: UIEdgeInsets)
+	/// Bezier path of a squircle
     case squircle(cornerRadii: [UIRectCorner: CGFloat], isRelative: Bool, morphsIntoCircle: Bool, insets: UIEdgeInsets)
+	/// Bezier path of an arc
 	case arc(radius: CGFloat, isRelative: Bool, startAngle: CGFloat, endAngle: CGFloat, insets: UIEdgeInsets)
 
 
@@ -25,6 +32,7 @@ public enum BezierPath: Hashable, Codable {
     public init() {
         self = .rect(insets: .zero)
     }
+
 
 
 	// MARK: - Codable
