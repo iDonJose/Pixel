@@ -6,15 +6,20 @@
 //
 
 
-/// A UIColor wrapper conforming to Codable
-public struct Color: Equatable, Codable {
+/// A color representation that is Codable when UIColor is not
+public struct Color: Hashable, Codable, CustomStringConvertible, CustomPlaygroundDisplayConvertible {
 
 	public let value: UIColor
 
 
+	// MARK: - Initialize
+
 	public init(_ value: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)) {
 		self.value = value
 	}
+
+
+	// MARK: - Encodable
 
 	public init(from decoder: Decoder) throws {
 
@@ -31,8 +36,28 @@ public struct Color: Equatable, Codable {
 	}
 
 
+	// MARK: - Hashable
+
+	public var hashValue: Int {
+		return value.hashValue
+	}
+
 	public static func == (lhs: Color, rhs: Color) -> Bool {
 		return lhs.value == rhs.value
+	}
+
+
+	// MARK: - Description
+
+	public var description: String {
+		return value.description
+	}
+
+
+	// MARK: - Playground
+
+	public var playgroundDescription: Any {
+		return value
 	}
 
 }
