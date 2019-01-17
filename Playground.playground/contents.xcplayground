@@ -3,6 +3,7 @@
     <pages>
         <page name='Summary'/>
         <page name='BezierPath'/>
+        <page name='Color'/>
         <page name='Gradient'/>
     </pages>
 </playground>

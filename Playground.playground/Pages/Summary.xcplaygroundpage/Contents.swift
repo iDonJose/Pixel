@@ -15,6 +15,7 @@ A collection of classes, protocols and extensions that enrich UIKit & Texture
 
  **Classes**
  - [`BezierPath`](BezierPath) : Bezier path representation
+ - [`Color`](Color) : A color representation which is Codable
  - [`Gradient`](Gradient) : Gradient representation, drawable
 
  */
