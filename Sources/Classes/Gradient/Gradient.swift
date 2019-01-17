@@ -8,8 +8,11 @@
 
 public enum Gradient: Hashable, Codable {
 
+	/// Linear gradient
 	case linear(colors: Colors, start: CGPoint, end: CGPoint, isRelative: Bool)
+	/// Radial gradient
 	case radial(colors: Colors, startCenter: CGPoint, endCenter: CGPoint, startRadius: CGFloat, endRadius: CGFloat, isRelative: Bool)
+	/// Conical gradient
 	case conical(colors: Colors, center: CGPoint, startRadius: CGFloat, endRadius: CGFloat, isRelative: Bool, startAngle: CGFloat, endAngle: CGFloat)
 
 

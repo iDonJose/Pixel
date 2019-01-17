@@ -8,6 +8,8 @@
 
 extension Gradient {
 
+	/// A set of ordered and located colors.
+	/// Locations are relative, though in [0, 1]
 	public struct Colors: Hashable, Codable {
 
 		private enum CodingKeys: String, CodingKey {

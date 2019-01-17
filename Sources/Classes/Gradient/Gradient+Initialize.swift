@@ -12,32 +12,39 @@ extension Gradient {
 		self = .linear(colors: .init(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)), start: .zero, end: .one, isRelative: true)
 	}
 
+	/// Gradient of only one color
 	public static func uniform(color: UIColor) -> Gradient {
 		return Gradient.horizontal(colors: color)
 	}
 
 
+	/// Linear horizontal gradient
 	public static func horizontal(colors: UIColor...) -> Gradient {
 		return horizontal(colors: colors)
 	}
 
+	/// Linear horizontal gradient
 	public static func horizontal(colors: [UIColor]) -> Gradient {
 		return .linear(colors: .init(colors), start: .zero, end: .init(x: 1, y: 0), isRelative: true)
 	}
 
+	/// Linear vertical gradient
 	public static func vertical(colors: UIColor...) -> Gradient {
 		return vertical(colors: colors)
 	}
 
+	/// Linear vertical gradient
 	public static func vertical(colors: [UIColor]) -> Gradient {
 		return .linear(colors: .init(colors), start: .zero, end: .init(x: 0, y: 1), isRelative: true)
 	}
 
 
+	/// Linear gradient
 	public static func direction(_ vector: CGVector, colors: UIColor...) -> Gradient {
 		return direction(vector, colors: colors)
 	}
 
+	/// Linear gradient
 	public static func direction(_ vector: CGVector, colors: [UIColor]) -> Gradient {
 
 		let angle: CGFloat

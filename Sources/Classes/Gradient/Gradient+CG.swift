@@ -8,7 +8,7 @@
 
 extension Gradient {
 
-	/// Applies Gradient on a CGContext
+	/// Draws Gradient on a CGContext
 	public func draw(in bounds: CGRect,
 					 context: CGContext) {
 
@@ -135,6 +135,11 @@ extension Gradient {
 		let scale = UIScreen.main.scale
 		let extent = CGRect(origin: .zero,
 							size: bounds.size * scale)
+
+		let startAngle = startAngle.truncatingRemainder(dividingBy: 2 * .pi)
+			+ (startAngle < 0 ? 2 * .pi : 0)
+		let endAngle = endAngle.truncatingRemainder(dividingBy: 2 * .pi)
+			+ (endAngle < 0 ? 2 * .pi : 0)
 
 		var center = center
 		var startRadius = startRadius
