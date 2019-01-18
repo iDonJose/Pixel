@@ -4,6 +4,7 @@
         <page name='Summary'/>
         <page name='BezierPath'/>
         <page name='Color'/>
+        <page name='DisplayLink'/>
         <page name='Gradient'/>
     </pages>
 </playground>
