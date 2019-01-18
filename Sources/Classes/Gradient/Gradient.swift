@@ -6,6 +6,7 @@
 //
 
 
+/// A gredient representation
 public enum Gradient: Hashable, Codable {
 
 	/// Linear gradient

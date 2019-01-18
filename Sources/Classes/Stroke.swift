@@ -6,6 +6,7 @@
 //
 
 
+/// A stroke representation
 public struct Stroke: Equatable, Codable {
 
 	public enum Alignment: String, Codable {
@@ -52,7 +53,7 @@ public struct Stroke: Equatable, Codable {
 	// MARK: - Drawing
 
 	/// Applies Gradient on a CGContext
-	public func draw(context: CGContext) {
+	public func apply(on context: CGContext) {
 
 		context.setLineWidth(width)
 		context.setLineCap(cap)
