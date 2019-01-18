@@ -36,16 +36,6 @@ public struct Color: Hashable, Codable, CustomStringConvertible, CustomPlaygroun
 	}
 
 
-	// MARK: - Hashable
-
-	public var hashValue: Int {
-		return value.hashValue
-	}
-
-	public static func == (lhs: Color, rhs: Color) -> Bool {
-		return lhs.value == rhs.value
-	}
-
 
 	// MARK: - Description
 
