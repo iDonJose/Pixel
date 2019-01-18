@@ -13,6 +13,7 @@ import AsyncDisplayKit
 
 extension ASButtonNode {
 
+	/// Changes text's attributes
 	public func update(attributedText: NSAttributedString) {
 		setAttributedTitle(attributedText, for: .normal)
 	}
