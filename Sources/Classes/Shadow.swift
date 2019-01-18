@@ -6,7 +6,8 @@
 //
 
 
-public struct Shadow: Equatable {
+// A shadow representation
+public struct Shadow: Hashable, Codable {
 
 	/// Color
 	public var color: UIColor
@@ -57,12 +58,32 @@ public struct Shadow: Equatable {
     }
 
 
-    // MARK: - Equatable
 
-    public static func == (lhs: Shadow, rhs: Shadow) -> Bool {
-        return lhs.color == rhs.color
-            && lhs.radius == rhs.radius
-            && lhs.offset == rhs.offset
-    }
+	// MARK: - Codable
+
+	private enum CodingKeys: String, CodingKey {
+		case color
+		case radius
+		case offset
+	}
+
+	public init(from decoder: Decoder) throws {
+
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		let color = try container.decode(Color.self, forKey: .color)
+		let radius = try container.decode(CGFloat.self, forKey: .radius)
+		let offset = try container.decode(CGPoint.self, forKey: .offset)
+
+		self.init(color: color.value, radius: radius, offset: offset)
+	}
+
+	public func encode(to encoder: Encoder) throws {
+
+		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(Color(color), forKey: .color)
+		try container.encode(radius, forKey: .radius)
+		try container.encode(offset, forKey: .offset)
+
+	}
 
 }
