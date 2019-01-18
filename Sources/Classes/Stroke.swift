@@ -7,7 +7,7 @@
 
 
 /// A stroke representation
-public struct Stroke: Equatable, Codable {
+public struct Stroke: Hashable, Codable {
 
 	public enum Alignment: String, Codable {
 		case out
