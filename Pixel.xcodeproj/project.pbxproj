@@ -337,12 +337,12 @@
 			path = Gradient;
 			sourceTree = "<group>";
 		};
-		82D6371D21AEEAE6001B3E30 /* Foundations */ = {
+		82D6371D21AEEAE6001B3E30 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
 				82D6371E21AEEAF9001B3E30 /* NSShadow.swift */,
 			);
-			path = Foundations;
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 		F83B7B057A3D301B13622E5B /* Frameworks */ = {
@@ -386,7 +386,7 @@
 				828727F021AD466E00819150 /* Texture */,
 				825C1DF921AC12670080D384 /* UIKit */,
 				825C1E1921AC3AA70080D384 /* CoreGraphics */,
-				82D6371D21AEEAE6001B3E30 /* Foundations */,
+				82D6371D21AEEAE6001B3E30 /* Foundation */,
 				825C1DFE21AC13B10080D384 /* Conversions */,
 				825C1E0921AC2C910080D384 /* Operators */,
 			);
