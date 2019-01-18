@@ -7,5 +7,6 @@
         <page name='DisplayLink'/>
         <page name='Gradient'/>
         <page name='Stroke'/>
+        <page name='Shadow'/>
     </pages>
 </playground>

@@ -19,5 +19,6 @@ A collection of classes, protocols and extensions that enrich UIKit & Texture
  - [`DisplayLink`](DisplayLink) : Simplify use of CADisplayLink
  - [`Gradient`](Gradient) : Gradient representation, drawable through CGContext
  - [`Stroke`](Stroke) : Stroke representation
+ - [`Shadow`](Shadow) : Shadow representation
 
  */
