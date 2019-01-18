@@ -6,5 +6,6 @@
         <page name='Color'/>
         <page name='DisplayLink'/>
         <page name='Gradient'/>
+        <page name='Stroke'/>
     </pages>
 </playground>

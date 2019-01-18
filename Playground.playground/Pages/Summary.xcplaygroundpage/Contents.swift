@@ -17,6 +17,7 @@ A collection of classes, protocols and extensions that enrich UIKit & Texture
  - [`BezierPath`](BezierPath) : Bezier path representation
  - [`Color`](Color) : A color representation which is Codable
  - [`DisplayLink`](DisplayLink) : Simplify use of CADisplayLink
- - [`Gradient`](Gradient) : Gradient representation, drawable
+ - [`Gradient`](Gradient) : Gradient representation, drawable through CGContext
+ - [`Stroke`](Stroke) : Stroke representation
 
  */
