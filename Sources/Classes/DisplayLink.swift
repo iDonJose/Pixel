@@ -6,6 +6,7 @@
 //
 
 
+/// Wraps a CADisplayLink allowing to simply update display on every frame
 public final class DisplayLink: NSObject {
 
 	/// Display link
@@ -23,8 +24,14 @@ public final class DisplayLink: NSObject {
 
 	// MARK: - Initialize
 
+	/// Initialize DisplayLink
+	///
+	/// - Parameters:
+	///   - lifespan: Duration of DisplayLink before it ends
+	///   - fps: Frames per second rate
+	///   - update: Update callback with parameters : timestamp, isCompleted & isCanceled
 	public init(lifespan: Double? = nil,
-				fps: Int = 0,
+				fps: Int? = nil,
 				update: @escaping (_ timestamp: Double, _ isCompleted: Bool, _ isCanceled: Bool) -> Void) {
 
 		self.lifespan = lifespan
@@ -37,10 +44,12 @@ public final class DisplayLink: NSObject {
 
 	}
 
-    private func set(fps fps_target: Int) {
+    private func set(fps fps_target: Int?) {
 
-        guard fps_target != 0 else { return }
-
+        guard
+			let fps_target = fps_target,
+			fps_target != 0
+			else { return }
 
         let fps_max: Int
 
@@ -50,8 +59,8 @@ public final class DisplayLink: NSObject {
         var i = 2
         while fps_target <= fps_max / i { i += 1 }
         i -= 1
-        
-        let fps = fps_max / i
+
+		let fps = fps_max / i
 
         if #available(iOS 10.0, *) { displayLink!.preferredFramesPerSecond = fps }
         else { displayLink!.frameInterval = i }
@@ -59,17 +68,18 @@ public final class DisplayLink: NSObject {
     }
 
 	deinit {
-		invalidate()
+		stop(isCanceled: true)
 	}
 
 
 
-	// MARK: - Clean up
+	// MARK: - Stop
 
-	public func invalidate() {
+	/// Stops CADisplayLink
+	public func stop(isCanceled: Bool) {
 
         if let timestamp = displayLink?.timestamp {
-            update?(timestamp, false, true)
+            update?(timestamp - start, !isCanceled, isCanceled)
         }
 
         update = nil
@@ -100,10 +110,8 @@ public final class DisplayLink: NSObject {
             }
         }
 
-
-		update?(timestamp, isCompleted, false)
-
-        if isCompleted { invalidate() }
+		if isCompleted { stop(isCanceled: false) }
+		else { update?(timestamp, false, false) }
 
 	}
 
