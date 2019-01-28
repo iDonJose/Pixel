@@ -75,11 +75,17 @@ public final class DisplayLink: NSObject {
 
 	// MARK: - Stop
 
+    /// Invalidates
+    public func invalidate() {
+        stop(isCanceled: true)
+    }
+
 	/// Stops CADisplayLink
-	public func stop(isCanceled: Bool) {
+    private func stop(isCompleted: Bool = false,
+                     isCanceled: Bool = false) {
 
         if let timestamp = displayLink?.timestamp {
-            update?(timestamp - start, !isCanceled, isCanceled)
+            update?(timestamp - start, isCompleted, isCanceled)
         }
 
         update = nil
@@ -110,7 +116,7 @@ public final class DisplayLink: NSObject {
             }
         }
 
-		if isCompleted { stop(isCanceled: false) }
+		if isCompleted { stop(isCompleted: true) }
 		else { update?(timestamp, false, false) }
 
 	}
