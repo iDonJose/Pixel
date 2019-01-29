@@ -10,5 +10,6 @@
         <page name='Shadow'/>
         <page name='CALayer'/>
         <page name='CGPoint'/>
+        <page name='CGVector'/>
     </pages>
 </playground>

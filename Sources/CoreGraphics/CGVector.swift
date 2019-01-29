@@ -28,14 +28,20 @@ extension CGVector {
 	/// Result angle is in [0, 2pi] radians
 	public func angle(to vector: CGVector) -> CGFloat {
 
-		var angle = atan2(dy, dx) - atan2(vector.dy, vector.dx)
+		var angle = atan2(vector.dy, vector.dx) - atan2(dy, dx)
 		if angle < 0 { angle += 2 * .pi }
 
 		return angle
 	}
 
+	/// Calculates angle from vector to another.
+	/// Result angle is in [0, 2pi] radians
+	public func angle(from vector: CGVector) -> CGFloat {
+		return 2 * .pi - vector.angle(to: self)
+	}
+
 	/// Rotates vector by a given angle (radians)
-	public func rotating(by angle: CGFloat) -> CGVector {
+	public func rotated(by angle: CGFloat) -> CGVector {
 
 		let cos = CoreGraphics.cos(angle)
 		let sin = CoreGraphics.sin(angle)
