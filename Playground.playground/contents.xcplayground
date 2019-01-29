@@ -9,5 +9,6 @@
         <page name='Stroke'/>
         <page name='Shadow'/>
         <page name='CALayer'/>
+        <page name='CGPoint'/>
     </pages>
 </playground>

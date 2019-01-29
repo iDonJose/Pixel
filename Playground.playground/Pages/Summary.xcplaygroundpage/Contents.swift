@@ -23,5 +23,6 @@ A collection of classes, protocols and extensions that enrich UIKit & Texture
 
  **CoreGraphics**
  - [`CALayer.change(anchor:)`](CALayer) : Change a layer's anchor without changing the position
+ - [`CGPoint`](CGPoint)
 
  */
