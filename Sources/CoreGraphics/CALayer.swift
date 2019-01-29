@@ -11,7 +11,7 @@ import UIKit
 
 extension CALayer {
 
-	/// Changes anchor point will keeping the layer at the same position
+	/// Changes anchor point without changing layer's position
 	public func change(anchor: CGPoint) {
 
 		let size = bounds.size

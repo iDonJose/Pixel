@@ -8,5 +8,6 @@
         <page name='Gradient'/>
         <page name='Stroke'/>
         <page name='Shadow'/>
+        <page name='CALayer'/>
     </pages>
 </playground>
