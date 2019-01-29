@@ -23,6 +23,7 @@ A collection of classes, protocols and extensions that enrich UIKit & Texture
 
  **UIKit**
  - [`UIColor`](UIColor)
+ - [`UIEdgeInsets`](UIEdgeInsets)
 
  **CoreGraphics**
  - [`CALayer.change(anchor:)`](CALayer) : Change a layer's anchor without changing the position

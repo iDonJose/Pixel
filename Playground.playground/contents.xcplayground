@@ -12,5 +12,6 @@
         <page name='CGPoint'/>
         <page name='CGVector'/>
         <page name='UIColor'/>
+        <page name='UIEdgeInsets'/>
     </pages>
 </playground>

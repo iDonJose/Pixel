@@ -26,18 +26,6 @@ extension UIEdgeInsets {
 	}
 
 
-	// MARK: - Properties
-
-	/// Horizontal sum of left inset and right inset.
-	public var horizontal: CGFloat {
-		return left + right
-	}
-
-	/// Vertical sum of top inset and bottom inset.
-	public var vertical: CGFloat {
-		return top + bottom
-	}
-
 
 	// MARK: - Initialize
 
@@ -52,6 +40,21 @@ extension UIEdgeInsets {
 
 	/// Insets with all values equal to one
 	public static let one = UIEdgeInsets(edges: .all, value: 1)
+
+
+
+	// MARK: - Properties
+
+	/// Horizontal sum of left inset and right inset.
+	public var horizontal: CGFloat {
+		return left + right
+	}
+
+	/// Vertical sum of top inset and bottom inset.
+	public var vertical: CGFloat {
+		return top + bottom
+	}
+
 
 
 	// MARK: - Filtering
