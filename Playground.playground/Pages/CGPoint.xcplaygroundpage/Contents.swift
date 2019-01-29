@@ -23,7 +23,7 @@ let normedPoint = point.normed()
 /*:
  ### `angle(to:)`
  Angle between two points
- > See `angle(from:)`
+ > See also `angle(from:)`
  */
 
 let angle = point.angle(to: otherPoint)

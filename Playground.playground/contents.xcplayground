@@ -11,5 +11,6 @@
         <page name='CALayer'/>
         <page name='CGPoint'/>
         <page name='CGVector'/>
+        <page name='UIColor'/>
     </pages>
 </playground>

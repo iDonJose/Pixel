@@ -21,6 +21,9 @@ A collection of classes, protocols and extensions that enrich UIKit & Texture
  - [`Stroke`](Stroke) : Stroke representation
  - [`Shadow`](Shadow) : Shadow representation
 
+ **UIKit**
+ - [`UIColor`](UIColor)
+
  **CoreGraphics**
  - [`CALayer.change(anchor:)`](CALayer) : Change a layer's anchor without changing the position
  - [`CGPoint`](CGPoint)
