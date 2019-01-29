@@ -20,16 +20,12 @@ extension UIView {
 	public var rootView: UIView? {
 
 		var rootView: UIView? = superview
-
-		while let next = rootView?.superview {
-			rootView = next
-		}
+		while let next = rootView?.superview { rootView = next }
 
 		return rootView
-
 	}
 
-	/// Changes anchor point will keeping the layer at the same position
+	/// Changes anchor point without changing layer's position
 	public func change(anchor: CGPoint) {
 		layer.change(anchor: anchor)
 	}

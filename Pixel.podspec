@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
     s.version      = "1.0.0"
     s.summary      = "A collection of classes, protocols and extensions that enrich UIKit & Texture"
     s.description  = <<-DESC
-						`Pixel` brings new classes, protocols and extensions to `UIKit` and `Texture` to boost your productivity and for ease of use.
+						`Pixel` brings new classes, protocols and extensions to `UIKit` and `Texture` to boost your productivity.
                         DESC
     s.homepage     = "https://github.com/iDonJose/Pixel"
     s.source       = { :git => "https://github.com/iDonJose/Pixel.git", :tag => "#{s.version}" }

@@ -28,7 +28,6 @@ extension UIViewController {
 	public var topMostViewController: UIViewController? {
 
 		var topMostViewController = self
-
 		while let next = topMostViewController.topViewController {
 			topMostViewController = next
 		}

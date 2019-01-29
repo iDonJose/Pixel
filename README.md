@@ -1,6 +1,6 @@
 # Pixel
 
-`Pixel` brings new classes, protocols and extensions to `UIKit` and [`Texture`](https://github.com/TextureGroup/Texture) to boost your productivity and for ease of use.
+`Pixel` brings new classes, protocols and extensions to `UIKit` and [`Texture`](https://github.com/TextureGroup/Texture) to boost your productivity.
 <p align="center">
 	<a href="https://swift.org">
         <img src="https://img.shields.io/badge/Swift-4.2-orange.svg" />
