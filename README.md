@@ -68,9 +68,10 @@ To add *Pixel* to your project manually, download the source code and place it i
 *Pixel* was made possible thanks to :
 - [SVGPath](https://github.com/timrwood/SVGPath)
 - [Texture](https://github.com/TextureGroup/Texture)
+
+- [DynamicColor](https://github.com/yannickl/DynamicColor/blob/master/Sources/HSL.swift)
 - [react-native-squircle-view](https://github.com/everdrone/react-native-squircle-view/blob/master/ios/RNSquircleView.swift)
 - [UIBezierPath-Superpowers](https://github.com/ImJCabus/UIBezierPath-Superpowers)
-
 
 ## 📃 License
 *Pixel* is released under an Apache 2.0 license. See [License](https://github.com/idonjose/Pixel/blob/master/LICENSE) for more information.

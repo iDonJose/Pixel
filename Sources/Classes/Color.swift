@@ -24,9 +24,9 @@ public struct Color: Hashable, Codable, CustomStringConvertible, CustomPlaygroun
 	public init(from decoder: Decoder) throws {
 
 		let value = try decoder.singleValueContainer()
-		let RGBA = try value.decode(String.self)
+		let rgba = try value.decode(String.self)
 
-		self.init(UIColor(RGBA: RGBA) ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+		self.init(UIColor(rgba: rgba) ?? #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
 
 	}
 

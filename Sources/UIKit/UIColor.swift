@@ -5,6 +5,8 @@
 //  Created by José Donor on 26/11/2018.
 //
 
+// Source : https://github.com/yannickl/DynamicColor/blob/master/Sources/HSL.swift
+
 import UIKit
 
 
@@ -94,15 +96,62 @@ extension UIColor {
 		let alpha = CGFloat(hexValue & 0x000000FF) / divisor
 
 		self.init(red: red, green: green, blue: blue, alpha: alpha)
-
 	}
 
 
-	// MARK: - Fluent
-
-	/// Changes alpha.
-	public func with(alpha: CGFloat) -> UIColor {
-		return withAlphaComponent(alpha)
+	/// Hue in [0°, 360°]
+	public var hue: CGFloat {
+		return hsla.hue
 	}
+
+	/// Saturation in [0, 1]
+	public var saturation: CGFloat {
+		return hsla.saturation
+	}
+
+	/// Lightness in [0, 1]
+	public var lightness: CGFloat {
+		return hsla.lightness
+	}
+
+	/// Red, blue, green & apha components.
+	public var hsla: (hue: CGFloat, saturation: CGFloat, lightness: CGFloat, alpha: CGFloat) {
+
+		let rgba = self.rgba
+
+		let max = Swift.max(rgba.red, Swift.max(rgba.green, rgba.blue))
+		let min = Swift.min(rgba.red, Swift.min(rgba.green, rgba.blue))
+		let delta = max - min
+		let sum = max + min
+
+		var hue: CGFloat = 0
+		var saturation: CGFloat = 0
+		let lightness = (max + min) / 2
+		let alpha = rgba.alpha
+
+		if delta != 0 {
+
+			saturation = lightness < 0.5
+				? delta / sum
+				: delta / (2 - sum)
+
+			switch max {
+			case rgba.red:
+				hue = (rgba.green - rgba.blue) / delta + (rgba.green < rgba.blue ? 6 : 0)
+			case rgba.green:
+				hue = (rgba.blue - rgba.red) / delta + 2
+			case rgba.blue:
+				hue = (rgba.red - rgba.green) / delta + 4
+			default:
+				break
+			}
+
+		}
+
+		hue *= 60
+
+		return (hue, saturation, lightness, alpha)
+	}
+
 
 }
