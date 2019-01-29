@@ -8,10 +8,11 @@
         <page name='Gradient'/>
         <page name='Stroke'/>
         <page name='Shadow'/>
+        <page name='UIColor'/>
+        <page name='UIEdgeInsets'/>
+        <page name='UIImage'/>
         <page name='CALayer'/>
         <page name='CGPoint'/>
         <page name='CGVector'/>
-        <page name='UIColor'/>
-        <page name='UIEdgeInsets'/>
     </pages>
 </playground>

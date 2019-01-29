@@ -6,7 +6,7 @@ import Pixel
 
 
 /*:
- ### `init(edges:value)`
+ ### `init(edges:value:)`
  */
 
 let insets = UIEdgeInsets(edges: [.top, .left, .right], value: 2)
