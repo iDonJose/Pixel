@@ -31,6 +31,7 @@
 		825C1E4121AC6FCC0080D384 /* UIBezierPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C1E4021AC6FCC0080D384 /* UIBezierPath.swift */; };
 		825C1E4421AC70910080D384 /* BezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C1E4321AC70910080D384 /* BezierCurve.swift */; };
 		825C1E4721AC85010080D384 /* UIBezierPath+Squircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C1E4621AC85010080D384 /* UIBezierPath+Squircle.swift */; };
+		8283B1D12215A2CA00C7F641 /* AAScrollableDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8283B1D02215A2CA00C7F641 /* AAScrollableDirections.swift */; };
 		828727E821AD3AAA00819150 /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828727E721AD3AAA00819150 /* UIEdgeInsets.swift */; };
 		828727EA21AD3E8100819150 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828727E921AD3E8100819150 /* UIImage.swift */; };
 		828727EC21AD425900819150 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828727EB21AD425900819150 /* UIView.swift */; };
@@ -110,6 +111,7 @@
 		825C1E4021AC6FCC0080D384 /* UIBezierPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPath.swift; sourceTree = "<group>"; };
 		825C1E4321AC70910080D384 /* BezierCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierCurve.swift; sourceTree = "<group>"; };
 		825C1E4621AC85010080D384 /* UIBezierPath+Squircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Squircle.swift"; sourceTree = "<group>"; };
+		8283B1D02215A2CA00C7F641 /* AAScrollableDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAScrollableDirections.swift; sourceTree = "<group>"; };
 		828727E721AD3AAA00819150 /* UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		828727E921AD3E8100819150 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		828727EB21AD425900819150 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				828727F321AD482600819150 /* ASButtonNode.swift */,
+				8283B1D02215A2CA00C7F641 /* AAScrollableDirections.swift */,
 			);
 			path = Texture;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				828727E821AD3AAA00819150 /* UIEdgeInsets.swift in Sources */,
 				828727F621AD48B500819150 /* CGFloat+Conversion.swift in Sources */,
 				825C1E3C21AC6AA00080D384 /* CGRect.swift in Sources */,
+				8283B1D12215A2CA00C7F641 /* AAScrollableDirections.swift in Sources */,
 				825C1E0B21AC2CCA0080D384 /* CGPoint+Algebra.swift in Sources */,
 				82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */,
 				82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */,

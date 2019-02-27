@@ -1,4 +1,4 @@
-#  Validate Podspec by running 'pod spec lint <Framework>.podspec'
+#  Validate Podspec by running 'pod spec lint Pixel.podspec'
 #  Podspec attributes : http://docs.cocoapods.org/specification.html
 #  Podspecs examples : https://github.com/CocoaPods/Specs/
 
