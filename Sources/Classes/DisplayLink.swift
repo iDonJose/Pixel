@@ -18,7 +18,7 @@ public final class DisplayLink: NSObject {
 	/// Lifespan
 	private let lifespan: Double?
     /// Start timestamp
-    private var start: Double!
+    private var start: Double?
 
 
 
@@ -84,10 +84,13 @@ public final class DisplayLink: NSObject {
     private func stop(isCompleted: Bool = false,
                      isCanceled: Bool = false) {
 
-        if let timestamp = displayLink?.timestamp {
-            update?(timestamp - start, isCompleted, isCanceled)
+        if let start = self.start,
+			let timestamp = displayLink?.timestamp {
+
+			update?(timestamp - start, isCompleted, isCanceled)
         }
 
+		start = nil
         update = nil
 		displayLink?.invalidate()
 		displayLink = nil
@@ -103,13 +106,13 @@ public final class DisplayLink: NSObject {
         if start == nil { start = displaylink.timestamp }
 
 
-        let timestamp = displaylink.timestamp - start
+        let timestamp = displaylink.timestamp - start!
 
         var isCompleted = false
 
         if let lifespan = self.lifespan {
             if #available(iOS 10.0, *) {
-                if displaylink.targetTimestamp - start > lifespan { isCompleted = true }
+                if displaylink.targetTimestamp - start! > lifespan { isCompleted = true }
             }
             else {
                 if timestamp >= lifespan { isCompleted = true }
