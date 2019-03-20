@@ -10,7 +10,7 @@
 public struct Shadow: Hashable, Codable {
 
 	/// Color
-	public var color: UIColor
+	public var color: Color
 	/// Radius
 	public var radius: CGFloat
 	/// Offset
@@ -23,10 +23,10 @@ public struct Shadow: Hashable, Codable {
         self.init(color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
 
-	public init(color: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+	public init(color: ColorConvertible = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
 				radius: CGFloat = 0,
 				offset: CGPoint = .zero) {
-		self.color = color
+		self.color = color.color
 		self.radius = radius
 		self.offset = offset
 	}
@@ -40,7 +40,7 @@ public struct Shadow: Hashable, Codable {
 
 	/// NSShadow
 	public var nsShadow: NSShadow {
-		return NSShadow(color: color,
+		return NSShadow(color: UIColor(color: color),
 						radius: radius,
 						offset: offset)
 	}
@@ -53,37 +53,8 @@ public struct Shadow: Hashable, Codable {
 
         context.setShadow(offset: offset.to.cgSize,
                           blur: radius,
-                          color: color.cgColor)
+                          color: UIColor(color: color).cgColor)
 
     }
-
-
-
-	// MARK: - Codable
-
-	private enum CodingKeys: String, CodingKey {
-		case color
-		case radius
-		case offset
-	}
-
-	public init(from decoder: Decoder) throws {
-
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let color = try container.decode(Color.self, forKey: .color)
-		let radius = try container.decode(CGFloat.self, forKey: .radius)
-		let offset = try container.decode(CGPoint.self, forKey: .offset)
-
-		self.init(color: UIColor(color: color), radius: radius, offset: offset)
-	}
-
-	public func encode(to encoder: Encoder) throws {
-
-		var container = encoder.container(keyedBy: CodingKeys.self)
-		try container.encode(color.color, forKey: .color)
-		try container.encode(radius, forKey: .radius)
-		try container.encode(offset, forKey: .offset)
-
-	}
 
 }
