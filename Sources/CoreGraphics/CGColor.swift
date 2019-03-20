@@ -11,9 +11,9 @@ import UIKit
 
 extension CGColor {
 
-	/// UIColor
-	public var uiColor: UIColor {
-		return UIColor(cgColor: self)
+	/// Changes alpha.
+	public func with(alpha: CGFloat) -> CGColor {
+		return copy(alpha: alpha) ?? copy()!
 	}
 
 }
