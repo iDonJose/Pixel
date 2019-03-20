@@ -12,16 +12,11 @@ extension Gradient {
 	/// Locations are relative, though in [0, 1]
 	public struct Colors: Hashable, Codable {
 
-		private enum CodingKeys: String, CodingKey {
-			case colors
-		}
-
 		/// Colors
-		public let colors: [CGFloat: UIColor]
-
+		public let colors: [Double: Color]
 		/// Locations
-		public var locations: [CGFloat] {
-			return colors.keys.sorted()
+		public var locations: [Double] {
+			return Array(colors.keys)
 		}
 
 
@@ -32,102 +27,54 @@ extension Gradient {
 			self.init(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
 		}
 
-		public init(_ colors: UIColor...) {
+		public init(_ colors: ColorConvertible...) {
 			self.init(colors)
 		}
 
-		public init(_ colors: [UIColor]) {
+		public init(_ colors: [ColorConvertible]) {
 
 			if colors.isEmpty {
-				self.colors = [0: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), 1: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+				self.colors = [0: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), 1: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)].mapValues { $0.color }
 			}
 			else if colors.count == 1 {
-				let color = colors.first!
-				self.colors = [0: color, 1: color]
+				let color = colors[0]
+				self.colors = [0: color, 1: color].mapValues { $0.color }
 			}
 			else {
 
-				let max = CGFloat(colors.count - 1)
-				let pairs = colors.enumerated()
-					.map { (CGFloat($0.offset) / max, $0.element) }
+				let max = Double(colors.count - 1)
+				let pairs = colors
+					.enumerated()
+					.map { (Double($0.offset) / max, $0.element.color) }
 
-				self.colors = [CGFloat: UIColor](uniqueKeysWithValues: pairs)
+				self.colors = [Double: Color](uniqueKeysWithValues: pairs)
 
 			}
 
 		}
 
-		public init(colors: [CGFloat: UIColor]) {
+		public init(colors: [Double: ColorConvertible]) {
 
 			if colors.isEmpty {
-				self.colors = [0: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), 1: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
+				self.colors = [0: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), 1: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)].mapValues { $0.color }
 			}
 			else if colors.count == 1 {
 				let color = colors.values.first!
-				self.colors = [0: color, 1: color]
+				self.colors = [0: color, 1: color].mapValues { $0.color }
 			}
 			else {
-
-				var colors = colors
-
-				// Checks that keys's bounds matches [0, 1]
-				let keys = colors.keys.sorted()
-
-				if let first = keys.first, first != 0 {
-					colors[0] = colors[first]
-					colors[first] = nil
-				}
-				if let last = keys.last, last != 1 {
-					colors[1] = colors[last]
-					colors[last] = nil
-				}
-
-				self.colors = colors
+				self.colors = [Double: Color](uniqueKeysWithValues: colors.map { (min(max($0.key, 0), 1), $0.value.color) })
 			}
 
 		}
 
 
 
-		// MARK: - Conversion
-
+		/// Gets equivalent CGGradient
 		public var cgGradient: CGGradient {
-
 			return CGGradient(colorsSpace: nil,
-							  colors: colors.values.map { $0.cgColor } as CFArray,
-							  locations: colors.keys.map { $0 })!
-		}
-
-
-
-		// MARK: - Codable
-
-		public init(from decoder: Decoder) throws {
-
-			let container = try decoder.container(keyedBy: CodingKeys.self)
-
-			let colors = try container.decode([CGFloat: Color].self, forKey: .colors)
-
-			self.colors = colors.mapValues { UIColor(color: $0) }
-
-		}
-
-		public func encode(to encoder: Encoder) throws {
-
-			var container = encoder.container(keyedBy: CodingKeys.self)
-
-			let colors = self.colors.mapValues { $0.color }
-
-			try container.encode(colors, forKey: .colors)
-
-		}
-
-
-
-		// MARK: - Hashable
-
-		public var hashValue: Int {
-			return Hash.hash(dictionary: colors)
+							  colors: colors.values.map { UIColor(color: $0).cgColor } as CFArray,
+							  locations: colors.keys.map { CGFloat($0) })!
 		}
 
 	}

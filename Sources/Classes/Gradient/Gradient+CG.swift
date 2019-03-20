@@ -129,7 +129,7 @@ extension Gradient {
 											bounds: CGRect,
 											context: CGContext) {
 
-		let kernel = Gradient.kernel(locations: colors.locations)
+		let kernel = Gradient.kernel(locations: colors.locations.map { CGFloat($0) })
 
 
 		let scale = UIScreen.main.scale
