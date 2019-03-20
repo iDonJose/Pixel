@@ -74,13 +74,13 @@ public struct Shadow: Hashable, Codable {
 		let radius = try container.decode(CGFloat.self, forKey: .radius)
 		let offset = try container.decode(CGPoint.self, forKey: .offset)
 
-		self.init(color: color.value, radius: radius, offset: offset)
+		self.init(color: UIColor(color: color), radius: radius, offset: offset)
 	}
 
 	public func encode(to encoder: Encoder) throws {
 
 		var container = encoder.container(keyedBy: CodingKeys.self)
-		try container.encode(Color(color), forKey: .color)
+		try container.encode(color.color, forKey: .color)
 		try container.encode(radius, forKey: .radius)
 		try container.encode(offset, forKey: .offset)
 

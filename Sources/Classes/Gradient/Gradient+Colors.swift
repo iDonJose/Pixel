@@ -108,7 +108,7 @@ extension Gradient {
 
 			let colors = try container.decode([CGFloat: Color].self, forKey: .colors)
 
-			self.colors = colors.mapValues { $0.value }
+			self.colors = colors.mapValues { UIColor(color: $0) }
 
 		}
 
@@ -116,7 +116,7 @@ extension Gradient {
 
 			var container = encoder.container(keyedBy: CodingKeys.self)
 
-			let colors = self.colors.mapValues { Color($0) }
+			let colors = self.colors.mapValues { $0.color }
 
 			try container.encode(colors, forKey: .colors)
 
