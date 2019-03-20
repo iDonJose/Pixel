@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		10EAF5BC55143319B6F20476 /* Pods_Pixel_Tests_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3714299DD2DC0463C315957B /* Pods_Pixel_Tests_iOS.framework */; };
+		821A689F22428BF000D0137A /* UIKit+ColorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821A689E22428BF000D0137A /* UIKit+ColorConvertible.swift */; };
+		821A68A12242A75400D0137A /* CoreGraphics+ColorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821A68A02242A75400D0137A /* CoreGraphics+ColorConvertible.swift */; };
+		821A68A42242A7E200D0137A /* CoreImage+ColorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821A68A32242A7E200D0137A /* CoreImage+ColorConvertible.swift */; };
+		821A68A72242A81300D0137A /* CIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821A68A62242A81300D0137A /* CIColor.swift */; };
+		821A68AA2242AE0800D0137A /* Color+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821A68A92242AE0800D0137A /* Color+Methods.swift */; };
 		825C1DFB21AC12BC0080D384 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C1DFA21AC12BC0080D384 /* UIColor.swift */; };
 		825C1DFD21AC13550080D384 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C1DFC21AC13550080D384 /* CGColor.swift */; };
 		825C1E0421AC2B0B0080D384 /* CGPoint+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825C1E0321AC2B0B0080D384 /* CGPoint+Conversion.swift */; };
@@ -47,6 +52,7 @@
 		8287280621ADB38A00819150 /* Gradient+CG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280521ADB38A00819150 /* Gradient+CG.swift */; };
 		8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8287280721AE031300819150 /* Gradient+Initialize.swift */; };
 		82891BFC21C71B4B0003511D /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82891BFB21C71B4B0003511D /* CALayer.swift */; };
+		82968B0E224232AB00BA11EE /* ColorConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82968B0D224232AB00BA11EE /* ColorConvertible.swift */; };
 		82A18AA021B98B7000ED070D /* DisplayLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A18A9F21B98B7000ED070D /* DisplayLink.swift */; };
 		82D6371021AE88EF001B3E30 /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6370F21AE88EF001B3E30 /* Stroke.swift */; };
 		82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D6371121AE89D5001B3E30 /* CG+Codable.swift */; };
@@ -88,6 +94,11 @@
 		2329C1BC346949AF4FC4BC68 /* Pods-Pixel-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixel-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pixel-iOS/Pods-Pixel-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		3714299DD2DC0463C315957B /* Pods_Pixel_Tests_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pixel_Tests_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC864347425F24E33217A30 /* Pods-Pixel-Tests-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pixel-Tests-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pixel-Tests-iOS/Pods-Pixel-Tests-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		821A689E22428BF000D0137A /* UIKit+ColorConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+ColorConvertible.swift"; sourceTree = "<group>"; };
+		821A68A02242A75400D0137A /* CoreGraphics+ColorConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+ColorConvertible.swift"; sourceTree = "<group>"; };
+		821A68A32242A7E200D0137A /* CoreImage+ColorConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreImage+ColorConvertible.swift"; sourceTree = "<group>"; };
+		821A68A62242A81300D0137A /* CIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIColor.swift; sourceTree = "<group>"; };
+		821A68A92242AE0800D0137A /* Color+Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Methods.swift"; sourceTree = "<group>"; };
 		825C1DFA21AC12BC0080D384 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		825C1DFC21AC13550080D384 /* CGColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		825C1E0321AC2B0B0080D384 /* CGPoint+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Conversion.swift"; sourceTree = "<group>"; };
@@ -127,6 +138,7 @@
 		8287280521ADB38A00819150 /* Gradient+CG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+CG.swift"; sourceTree = "<group>"; };
 		8287280721AE031300819150 /* Gradient+Initialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gradient+Initialize.swift"; sourceTree = "<group>"; };
 		82891BFB21C71B4B0003511D /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		82968B0D224232AB00BA11EE /* ColorConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConvertible.swift; sourceTree = "<group>"; };
 		82A18A9F21B98B7000ED070D /* DisplayLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLink.swift; sourceTree = "<group>"; };
 		82D6370F21AE88EF001B3E30 /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		82D6371121AE89D5001B3E30 /* CG+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+Codable.swift"; sourceTree = "<group>"; };
@@ -184,6 +196,34 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		821A689D22428BCD00D0137A /* ColorConvertible */ = {
+			isa = PBXGroup;
+			children = (
+				82968B0D224232AB00BA11EE /* ColorConvertible.swift */,
+				821A689E22428BF000D0137A /* UIKit+ColorConvertible.swift */,
+				821A68A02242A75400D0137A /* CoreGraphics+ColorConvertible.swift */,
+				821A68A32242A7E200D0137A /* CoreImage+ColorConvertible.swift */,
+			);
+			path = ColorConvertible;
+			sourceTree = "<group>";
+		};
+		821A68A52242A80300D0137A /* CoreImage */ = {
+			isa = PBXGroup;
+			children = (
+				821A68A62242A81300D0137A /* CIColor.swift */,
+			);
+			path = CoreImage;
+			sourceTree = "<group>";
+		};
+		821A68A82242ADF700D0137A /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				828727F821AD850D00819150 /* Color.swift */,
+				821A68A92242AE0800D0137A /* Color+Methods.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
 		825C1DF821AC10D90080D384 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				825C1E3D21AC6E140080D384 /* Codable */,
+				821A689D22428BCD00D0137A /* ColorConvertible */,
 				828727EF21AD450200819150 /* Equatable */,
 				825C1E1A21AC3AD60080D384 /* Hashable */,
 			);
@@ -283,7 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				828727F721AD84FF00819150 /* Bezier */,
-				828727F821AD850D00819150 /* Color.swift */,
+				821A68A82242ADF700D0137A /* Color */,
 				82A18A9F21B98B7000ED070D /* DisplayLink.swift */,
 				8287280021ADA57E00819150 /* Gradient */,
 				82D6370F21AE88EF001B3E30 /* Stroke.swift */,
@@ -388,6 +429,7 @@
 				825C1E1821AC3A910080D384 /* Protocols */,
 				828727F021AD466E00819150 /* Texture */,
 				825C1DF921AC12670080D384 /* UIKit */,
+				821A68A52242A80300D0137A /* CoreImage */,
 				825C1E1921AC3AA70080D384 /* CoreGraphics */,
 				82D6371D21AEEAE6001B3E30 /* Foundation */,
 				825C1DFE21AC13B10080D384 /* Conversions */,
@@ -583,10 +625,12 @@
 				82FA6C1A21F22CE500299264 /* Texture+Hashable.swift in Sources */,
 				828727EE21AD447600819150 /* UIViewController.swift in Sources */,
 				828727EA21AD3E8100819150 /* UIImage.swift in Sources */,
+				821A68A42242A7E200D0137A /* CoreImage+ColorConvertible.swift in Sources */,
 				825C1E1E21AC3B1A0080D384 /* CG+Hashable.swift in Sources */,
 				825C1E1C21AC3AED0080D384 /* Hash.swift in Sources */,
 				8287280621ADB38A00819150 /* Gradient+CG.swift in Sources */,
 				828727F221AD468200819150 /* Texture+Equatable.swift in Sources */,
+				82968B0E224232AB00BA11EE /* ColorConvertible.swift in Sources */,
 				825C1DFD21AC13550080D384 /* CGColor.swift in Sources */,
 				8287280421ADAA7000819150 /* Gradient+Colors.swift in Sources */,
 				825C1E1321AC35800080D384 /* CGAffineTransform+Algebra.swift in Sources */,
@@ -596,6 +640,7 @@
 				825C1E0621AC2B850080D384 /* CGVector+Conversion.swift in Sources */,
 				825C1E4421AC70910080D384 /* BezierCurve.swift in Sources */,
 				825C1E0421AC2B0B0080D384 /* CGPoint+Conversion.swift in Sources */,
+				821A689F22428BF000D0137A /* UIKit+ColorConvertible.swift in Sources */,
 				825C1E3621AC4DE00080D384 /* CGFloat.swift in Sources */,
 				825C1E3F21AC6E220080D384 /* UIKit+Codable.swift in Sources */,
 				825C1E0D21AC2DBB0080D384 /* CGSize+Algebra.swift in Sources */,
@@ -607,6 +652,7 @@
 				828727E821AD3AAA00819150 /* UIEdgeInsets.swift in Sources */,
 				828727F621AD48B500819150 /* CGFloat+Conversion.swift in Sources */,
 				825C1E3C21AC6AA00080D384 /* CGRect.swift in Sources */,
+				821A68A12242A75400D0137A /* CoreGraphics+ColorConvertible.swift in Sources */,
 				8283B1D12215A2CA00C7F641 /* AAScrollableDirections.swift in Sources */,
 				825C1E0B21AC2CCA0080D384 /* CGPoint+Algebra.swift in Sources */,
 				82D6371221AE89D5001B3E30 /* CG+Codable.swift in Sources */,
@@ -617,9 +663,11 @@
 				82D6372521AF4EED001B3E30 /* UIBezierPath+RoundedRect.swift in Sources */,
 				825C1E0F21AC30740080D384 /* CGVector+Algebra.swift in Sources */,
 				8287280821AE031300819150 /* Gradient+Initialize.swift in Sources */,
+				821A68AA2242AE0800D0137A /* Color+Methods.swift in Sources */,
 				82E0689121B1D7480002CDAC /* Shadow.swift in Sources */,
 				825C1E3821AC4E5F0080D384 /* CGVector.swift in Sources */,
 				825C1E3421AC4C920080D384 /* CGPoint.swift in Sources */,
+				821A68A72242A81300D0137A /* CIColor.swift in Sources */,
 				82891BFC21C71B4B0003511D /* CALayer.swift in Sources */,
 				825C1E3A21AC4EB00080D384 /* CGSize.swift in Sources */,
 				825C1E1521AC35C60080D384 /* CATransform3D+Algebra.swift in Sources */,
