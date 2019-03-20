@@ -12,3 +12,13 @@ public protocol ColorConvertible {
 	var color: Color { get }
 
 }
+
+
+extension Color: ColorConvertible {
+
+    /// Color
+    public var color: Color {
+        return self
+    }
+
+}
