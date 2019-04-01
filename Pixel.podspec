@@ -5,7 +5,7 @@
 Pod::Spec.new do |s|
 
     s.name         = "Pixel"
-    s.version      = "1.0.0"
+    s.version      = "1.1.0"
     s.summary      = "A collection of classes, protocols and extensions that enrich UIKit & Texture"
     s.description  = <<-DESC
 						`Pixel` brings new classes, protocols and extensions to `UIKit` and `Texture` to boost your productivity.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 
 	s.subspec 'Texture' do |texture|
 		texture.dependency 'Pixel/Core'
-		texture.dependency "Texture/Core", "~> 2.7"
+		texture.dependency "Texture/Core", "~> 2.8"
 		texture.xcconfig = { "OTHER_SWIFT_FLAGS" => "-D USE_TEXTURE" }
 	end
 
